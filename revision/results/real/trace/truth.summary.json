@@ -1,0 +1,10 @@
+{
+ "reads_aligned": 76513,
+ "identity_aggregate": 0.8966195433307879,
+ "identity_mean": 0.877391506587243,
+ "identity_median": 0.9248747913188647,
+ "identity_p10": 0.6672292545710268,
+ "identity_p90": 0.9507959479015919,
+ "identity_p99": 0.9620707329574577,
+ "phred_of_mean_error": 9.114794440547247
+}

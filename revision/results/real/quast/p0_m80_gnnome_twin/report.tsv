@@ -1,0 +1,55 @@
+Assembly	gnnome_twin
+# contigs (>= 0 bp)	1
+# contigs (>= 1000 bp)	1
+# contigs (>= 5000 bp)	1
+# contigs (>= 10000 bp)	1
+# contigs (>= 25000 bp)	1
+# contigs (>= 50000 bp)	1
+Total length (>= 0 bp)	4859097
+Total length (>= 1000 bp)	4859097
+Total length (>= 5000 bp)	4859097
+Total length (>= 10000 bp)	4859097
+Total length (>= 25000 bp)	4859097
+Total length (>= 50000 bp)	4859097
+# contigs	1
+Largest contig	4859097
+Total length	4859097
+Reference length	4583637
+GC (%)	50.61
+Reference GC (%)	50.77
+N50	4859097
+NG50	4859097
+N90	4859097
+NG90	4859097
+auN	4859097.0
+auNG	5151111.1
+L50	1
+LG50	1
+L90	1
+LG90	1
+# misassemblies	4
+# misassembled contigs	1
+Misassembled contigs length	4859097
+# local misassemblies	31
+# scaffold gap ext. mis.	0
+# scaffold gap loc. mis.	0
+# unaligned mis. contigs	0
+# unaligned contigs	0 + 1 part
+Unaligned length	30461
+Genome fraction (%)	99.441
+Duplication ratio	1.059
+# N's per 100 kbp	0.00
+# mismatches per 100 kbp	2102.02
+# indels per 100 kbp	2947.44
+Largest alignment	3808078
+Total aligned length	4828635
+NA50	3808078
+NGA50	3808078
+NA90	802483
+NGA90	802483
+auNA	3126448.3
+auNGA	3314336.5
+LA50	1
+LGA50	1
+LA90	2
+LGA90	2

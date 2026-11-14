@@ -1,0 +1,11 @@
+GFA            : raven/graph_1.gfa
+GFA sha256     : df228cda7354440b5a40c1d3f0e742a845076d9b468a547418a64cb90c6df15b
+GFA counts     : S=785  L=3317  -> expected nodes 2*S=1570, expected edges 2*L=6634
+GNNome run dir : gn_greedy_sim/raven
+0.dgl sha256   : 47cab7584c023e0a8eda9779446a7828b93376a7a22aaefd2a3bf787225b2ce6
+0.dgl counts   : nodes=1570  edges=6634
+0_predicts.pt  : (6634,) edge scores (one per DGL edge)
+node ids       : read_to_node.pkl == ids derived from GFA order: True
+node sequences : 1570/1570 nodes in 0_reads.pkl equal the GFA segment (or its reverse complement)
+edges          : 6634 of 6634 GFA-derived edges present in 0.dgl; 0 DGL edges not explained by the GFA
+VERDICT        : MATCH - this GNNome run consumed exactly this GFA

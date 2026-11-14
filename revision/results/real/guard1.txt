@@ -1,0 +1,2 @@
+raven/graph_1.gfa: 829 segments, testing 200 random (seed 42)
+  vs /home/sammyyakk/projects/gnnome-revision/work/data/SRR31302084_1.fastq.gz: same read name 200/200, identical sequence 200/200

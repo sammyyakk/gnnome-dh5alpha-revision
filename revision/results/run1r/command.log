@@ -1,0 +1,15 @@
+date_utc: Sat Nov 14 08:49:17 PM UTC 2026
+templates=14876 bases=275026307 depth=60.00
+pbsim: /home/sammyyakk/projects/gnnome-revision/work/src/pbsim3/src/pbsim_fixed --strategy templ --method qshmm --qshmm /home/sammyyakk/projects/gnnome-revision/work/src/pbsim3/data/QSHMM-RSII.model --template run1r.template --pass-num 10 --prefix run1r --seed 20261115
+total 4159628
+drwxr-xr-x 1 sammyyakk sammyyakk        192 Nov 15 02:19 .
+drwxr-xr-x 1 sammyyakk sammyyakk         16 Nov 15 02:12 ..
+-rw-r--r-- 1 sammyyakk sammyyakk        356 Nov 15 02:19 command.log
+-rw-r--r-- 1 sammyyakk sammyyakk        894 Nov 15 02:19 make_templates.py
+-rw-r--r-- 1 sammyyakk sammyyakk        768 Nov 15 03:33 pbsim.log
+-rw-r--r-- 1 sammyyakk sammyyakk 2038788862 Nov 15 03:33 run1r.bam
+-rw-r--r-- 1 sammyyakk sammyyakk 1945205259 Nov 15 03:33 run1r.maf.gz
+-rw-r--r-- 1 sammyyakk sammyyakk  275435627 Nov 15 02:19 run1r.template
+-rwxr-xr-x 1 sammyyakk sammyyakk       1078 Nov 15 02:18 simulate.sh
+-rw-r--r-- 1 sammyyakk sammyyakk         44 Nov 15 02:18 templates.log
+ccs: /home/sammyyakk/projects/gnnome-revision/work/envs/tools/bin/ccs -j 11 --min-passes 3 --min-rq 0.99 run1r.bam run1r.ccs.fastq.gz

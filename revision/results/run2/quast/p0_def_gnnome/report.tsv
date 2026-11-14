@@ -1,0 +1,32 @@
+Assembly	gnnome
+# contigs (>= 0 bp)	1
+# contigs (>= 1000 bp)	1
+# contigs (>= 5000 bp)	1
+# contigs (>= 10000 bp)	1
+# contigs (>= 25000 bp)	1
+# contigs (>= 50000 bp)	1
+Total length (>= 0 bp)	4680964
+Total length (>= 1000 bp)	4680964
+Total length (>= 5000 bp)	4680964
+Total length (>= 10000 bp)	4680964
+Total length (>= 25000 bp)	4680964
+Total length (>= 50000 bp)	4680964
+# contigs	1
+Largest contig	4680964
+Total length	4680964
+Reference length	4583637
+GC (%)	50.73
+Reference GC (%)	50.77
+N50	4680964
+NG50	4680964
+N90	4680964
+NG90	4680964
+auN	4680964.0
+auNG	4780357.6
+L50	1
+LG50	1
+L90	1
+LG90	1
+# unaligned contigs	1 + 0 part
+Unaligned length	4680964
+# N's per 100 kbp	0.00

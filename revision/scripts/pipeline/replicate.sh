@@ -5,6 +5,7 @@ cond=$1 acc=$2 depth=$3 lm=$4 lsd=$5 seed=$6 T=$7
 W=$HOME/projects/gnnome-revision/work; P=$W/src/pbsim3
 D=$W/runs/reps/${cond}_s${seed}; mkdir -p $D/sim; cd $D
 [ -f DONE ] && exit 0
+mkdir $D.lock 2>/dev/null || exit 0   # another runner owns this replicate
 echo "cond=$cond acc=$acc depth=$depth len_mean=$lm len_sd=$lsd seed=$seed" > params.txt
 if [ ! -s sim/sim_0001.fq.gz ]; then
   $P/src/pbsim --strategy wgs --method qshmm --qshmm $P/data/QSHMM-RSII.model --depth $depth --accuracy-mean $acc \
