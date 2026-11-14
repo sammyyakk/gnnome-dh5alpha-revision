@@ -1,0 +1,11 @@
+assembly	source	type	ref_left	ref_right	contig_left	contig_right	ref_jump	contig_gap	discrepancy	identity
+run2_greedy_sim_twin	minimap2	local	117417	111660	4557062	4563101	5757	6039	-282	0.8885/0.8603
+run2_greedy_sim_twin	minimap2	local	108303	102241	4566537	4572848	6062	6311	-249	0.8603/0.8353
+run2_greedy_sim_twin	minimap2	local	97248	92234	4578012	4583239	5014	5227	-213	0.8353/0.8892
+run2_greedy_sim_twin	minimap2_nolj	local	117417	111660	4557062	4563101	5757	6039	-282	0.8885/0.8603
+run2_greedy_sim_twin	minimap2_nolj	local	108303	102241	4566537	4572848	6062	6311	-249	0.8603/0.8353
+run2_greedy_sim_twin	minimap2_nolj	local	97248	92234	4578012	4583239	5014	5227	-213	0.8353/0.8892
+run2_greedy_sim_twin	nucmer	local	117140	111825	4557357	4562932	5315	5575	-260	0.8959/0.8481
+run2_greedy_sim_twin	quast	local_misassembly	4579893	115661	12	4558882	-4464232	4558870	-9023102	89.51
+run2_greedy_sim_twin	quast	local_misassembly	3153081	112712	1456191	4561991	-3040369	3105800	-6146169	81.6
+run2_greedy_sim_twin	quast	local_misassembly	114912	2313	4559654	4675044	-112599	115390	-227989	88.56

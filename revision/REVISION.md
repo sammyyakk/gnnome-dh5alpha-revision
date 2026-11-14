@@ -17,7 +17,7 @@ they are filled in the final version.
 |---|---|---|
 | 1 | 23 misassemblies from the stale graph | Rebuilt the stale K-12 graph and reproduced the 23 exactly. They are **strain differences between K-12 MG1655 and NEB 5-alpha**, not a GNNome failure. **There is no 210 kb inversion**: the claimed inversion was a K-12-only IS copy aligning in reverse to a DH5α IS copy. §3.7 rewritten. |
 | 2 | Twin-edge methodology | Raven fork patched to export both directional overlap lengths; GNNome parser patched to use them. Run 2: local misassemblies 19 → 5, extensive 0 → 0. The prediction in the Discussion is now tested. New §3.8. |
-| 3 | Greedy baseline on raw features | Same graph, same GNNome decoder, edge score from raw overlap similarity / length, no GNN. Raw `z(sim)+z(len)` greedy matches or beats GNNome on Run 2. New §3.9. This changes the interpretation: the advantage is a property of the input features plus greedy decoding, not of the learned network. |
+| 3 | Greedy baseline on raw features | Same graph, same GNNome decoder, edge score from raw overlap similarity / length, no GNN. A greedy walk ranked by raw overlap similarity alone beats GNNome on Run 2 (88.93% vs 88.26% unpolished identity; 3 vs 19 local misassemblies with twin lengths). New §3.9. This changes the interpretation: the advantage is a property of the input features plus greedy decoding, not of the learned network. |
 | 4 | Run 1 not reproducible | Run 1R: Run 1 regenerated from logged commands with a fixed PBSIM3 build (two upstream bugs patched, documented). ⟦Run 1R result⟧. Run 1 numbers in abstract are now marked non-reproducible and Run 1R numbers lead. |
 | 5 | Count discrepancies (3 vs 4 indels; 22 vs 21 breakpoints; Table 7 counts) | All traced to a cause; fixed text and figures. §6. |
 | 6 | Statistics (Run 1 p-value; 8/21 p=0.07; Q80; pseudo-replication) | Every test now named with k/n. Reviewer's binomial assumption for Run 1 is incorrect (it is a Wilcoxon on paired error differences). Setting-level tests (n = 7 / 9) and a mixed model added. Q80 → Q28. §5. |
@@ -65,12 +65,12 @@ new:
 
 **Line 51 – Results.** new:
 ```latex
-\textbf{Results:} After Racon polishing, GNNome was not more accurate than Raven (better in ⟦k/n⟧ settings). Unpolished, GNNome made fewer errors than Raven in ⟦k/n⟧ settings; the advantage was near zero at realistic $\sim$86\% read identity (+0.02~pp, 95\% CI $-0.36$ to $+0.40$) and grew with read accuracy. Its walk copies cleaner reads because its overlap-similarity input tracks read error (Spearman $\rho\approx-0.9$). A greedy walk that ranks edges by the same raw overlap features, with no neural network, matched or exceeded GNNome's unpolished accuracy ⟦in k/n settings⟧, so the advantage comes from the features and greedy decoding rather than from learned graph reasoning. Assigning each edge and its reverse-complement twin their own overlap lengths removed ⟦14 of 19⟧ GNNome local misassemblies on noisy reads. A previously reported 23-misassembly failure was a K-12 graph assembled by mistake; all 23 are reference differences between K-12 and NEB 5-alpha.
+\textbf{Results:} After Racon polishing, GNNome was not more accurate than Raven (better in ⟦k/n⟧ settings). Unpolished, GNNome made fewer errors than Raven in ⟦k/n⟧ settings; the advantage was near zero at realistic $\sim$86\% read identity (+0.02~pp, 95\% CI $-0.36$ to $+0.40$) and grew with read accuracy. Its walk copies cleaner reads because its overlap-similarity input tracks read error (Spearman $\rho\approx-0.9$). A greedy walk that ranks edges by raw overlap similarity, with no neural network, matched or exceeded GNNome's unpolished accuracy ⟦in k/n settings⟧, so the advantage comes from the features and greedy decoding rather than from learned graph reasoning. Assigning each edge and its reverse-complement twin their own overlap lengths removed ⟦14 of 19⟧ GNNome local misassemblies on noisy reads. A previously reported 23-misassembly failure was a K-12 graph assembled by mistake; all 23 are reference differences between K-12 and NEB 5-alpha.
 ```
 
 **Line 53 – Conclusion.** new:
 ```latex
-\textbf{Conclusion:} On DH5$\alpha$, pretrained GNNome's unpolished advantage over Raven arises from a preference for high-overlap-similarity edges, which a feature-only greedy walk reproduces, and it does not survive polishing.
+\textbf{Conclusion:} On DH5$\alpha$, pretrained GNNome's unpolished advantage over Raven arises from a preference for high-overlap-similarity edges, which a greedy walk on raw overlap similarity reproduces, and it does not survive polishing.
 ```
 
 ---
@@ -140,17 +140,37 @@ Run 2 (QUAST m80, unpolished):
 | GNNome model | twin | 2,350 | 7,555 | 5 | 99.792 |
 | length only | published | 2,472 | 7,720 | 64 | 98.981 |
 | length only | twin | 2,481 | 7,743 | 15 | 99.375 |
-| similarity only | published | 2,375 | 7,578 | 25 | 99.629 |
-| similarity only | twin | 2,366 | 7,574 | 6 | 99.780 |
-| similarity + length | published | 2,177 | 7,278 | 8 | 99.815 |
-| similarity + length | twin | 2,192 | 7,302 | 3 | 99.818 |
+| similarity only | published | **2,177** | **7,278** | 8 | 99.815 |
+| similarity only | twin | 2,192 | 7,302 | **3** | **99.818** |
+| similarity + length | published | 2,375 | 7,578 | 25 | 99.629 |
+| similarity + length | twin | 2,366 | 7,574 | 6 | 99.780 |
+
+Assemblies re-run inside the unified pipeline (`runs/run2_full`) are byte-identical to the first runs (SHA-256 prefixes:
+sim `13d24711`, sim_twin `722466bf`, simlen `b8afd143`, simlen_twin `ca540fa3`, len `42d55b64`).
+
+Read selection (Run 2, `trace/collect.json`; unpolished identity = minimap2 asm20 matches/columns):
+
+| Assembly | Unpolished identity | Source reads | Median piece | Weighted source-read error | Reads from worst decile | Racon×2 mm / indel per 100 kbp |
+|---|---|---|---|---|---|---|
+| Raven | 88.020% | 654 | 5.3 kb | 13.51% | 40 | 0.74 / 28.66 |
+| GNNome | 88.256% | 555 | 6.3 kb | 12.61% | 3 | 0.76 / 29.88 |
+| GNNome twin | 88.386% | 558 | 6.6 kb | 12.89% | 4 | 0.81 / 30.27 |
+| greedy length | 87.522% | 754 | 4.4 kb | 13.55% | 46 | 0.94 / 29.24 |
+| greedy similarity | 88.863% | 298 | 14.5 kb | 12.14% | 2 | 0.61 / 29.29 |
+| greedy similarity, twin | **88.932%** | 303 | 14.4 kb | 12.20% | 1 | 0.72 / 29.92 |
+| greedy sim+len | 87.959% | 587 | 6.3 kb | 13.03% | 7 | 0.85 / 29.51 |
+| greedy sim+len, twin | 88.337% | 581 | 6.4 kb | 12.95% | 5 | 0.76 / 29.77 |
+
+Ranking by overlap similarity alone copies fewer, longer and cleaner reads than the GNN does, and gives the most accurate
+unpolished assembly. Adding overlap length to the score (z-sum) dilutes this and lands near GNNome. After polishing all
+variants are within 0.61–0.94 mismatches and 28.7–30.3 indels per 100 kbp; none has local misassemblies.
 
 ⟦Replicate table: greedy_simlen vs GNNome vs Raven per setting⟧. ⟦Run 1R⟧. ⟦Real reads⟧.
 
 New text:
 ```latex
 \subsection{A Greedy Walk on Raw Overlap Features}
-To test whether the learned network is needed, we replaced its edge scores with simple functions of the two raw edge inputs and kept GNNome's decoder unchanged. Ranking edges by overlap length alone reproduced Raven's error rate; ranking by overlap similarity alone recovered most of GNNome's advantage; and ranking by the sum of the standardized similarity and length beat pretrained GNNome (2{,}177 vs.\ 2{,}279 mismatches and 7{,}278 vs.\ 7{,}438 indels per 100~kbp in Run~2, with 8 vs.\ 19 local misassemblies, or 3 with twin lengths). ⟦Replicates⟧. GNNome's unpolished advantage on this genome is therefore reproduced without a neural network.
+To test whether the learned network is needed, we replaced its edge scores with simple functions of the two raw edge inputs and kept GNNome's decoder unchanged. Ranking edges by overlap length alone reproduced Raven's error rate (2{,}472 mismatches and 7{,}720 indels per 100~kbp in Run~2, 64 local misassemblies); ranking by overlap similarity alone beat pretrained GNNome (2{,}177 vs.\ 2{,}279 mismatches and 7{,}278 vs.\ 7{,}438 indels per 100~kbp; 8 vs.\ 19 local misassemblies, or 3 with twin lengths), copying 298 reads with 12.1\% length-weighted error against GNNome's 555 reads at 12.6\%; and the sum of standardized similarity and length fell between the two. ⟦Replicates⟧. GNNome's unpolished advantage on this genome is therefore reproduced without a neural network.
 ```
 Discussion line 363: replace "GNNome's gain came instead from choosing among true overlaps, which is a read-quality decision." with "GNNome's gain came instead from choosing among true overlaps by overlap similarity, a read-quality decision that a feature-only greedy walk reproduces (Section~Y)."
 
@@ -160,6 +180,8 @@ Data: ENA/SRA SRR31302084 (BioProject PRJNA1184340, BioSample SAMN44668295), ONT
 487,533,667 bases (~106×), md5 `216907753a01fda1bb9bb163b39e573e` verified. Identical pipeline (`assemble_all.sh`);
 read truth from minimap2 `map-ont` primary alignments to CP017100.1 (`paf_truth.py`), so a handful of true
 strain differences count as read errors. Read identity: ⟦mean / median⟧.
+
+Run 2 read set (recomputed truth): 14,874 reads, mean per-read identity 85.995%, aggregate 86.010% (the manuscript's "86.01% mean" is the aggregate; per-read mean is 86.00%), median 87.10%, error shares 6.0 : 55.0 : 39.0 (sub : ins : del) — matches line 126.
 
 | Assembly | Unpolished mm / indel per 100 kbp (m80) | Local mis. | Racon×2 mm / indel | Racon×2 local | GF (Racon×2) |
 |---|---|---|---|---|---|
@@ -232,7 +254,7 @@ p = 5.66 × 10⁻³⁵. Run 2: 396/524 = 75.6%, p = 2.32 × 10⁻³⁴. The p-va
 Walk steps with true alternatives where the cleaner next read was taken & 333/393 (84.7\%) & 396/524 (75.6\%) \\
 \quad Wilcoxon signed-rank $p$ (paired error difference) & $5.7\times10^{-35}$ & $2.3\times10^{-34}$ \\
 ```
-⟦Run 1R / run2_full recomputation⟧
+**Run 2 recomputed from scratch** (`results/run2/trace/why_cleaner.json`, `why_cleaner_ablation.json`): ρ(similarity, true pair error) = −0.947; ρ(logit, similarity) = +0.719; ρ(logit, overlap length) = +0.638; walk steps with true alternatives 524, cleaner taken 396/524 = 75.6%, Wilcoxon p = 2.32 × 10⁻³⁴; ablation (1,439 nodes): cleaner-than-mean 77.1% → 56.1%, cleanest 44.2% → 28.5% (chance 28.3%); re-run model reproduces saved logits to 3.5 × 10⁻⁵. **All Table 5 Run 2 values reproduce.** The chosen edge also had the longer overlap in 90.3% of steps and the higher similarity in 77.3%. ⟦Run 1R⟧
 
 ### 5.2 "8 of 21, p = 0.07" (line 249)
 Polished: GNNome better in 8, Raven in 12, 1 tie. Exact sign test (tie excluded): p = 0.50 (the reviewer's 0.38 counts the
@@ -269,7 +291,7 @@ Single-pass PBSIM3 at 99% target gives 96.05% mean identity. Table 4 rows (lines
 | Item | Finding | Fix |
 |---|---|---|
 | Raven large indels: text 3 (line 345) vs Fig. "Raven large (4)" | 3 indels >5 bp (393 bp at 591,774; 121 bp at 2,468,405; 100 bp at 4,266,383). The figure (Fig. 6e in the plotting script, not 5b) counts 3 indels + 1 breakpoint, double-counting the 393 bp collapse. | Figure label → "Raven large indels (3)"; regenerated. |
-| Breakpoints 22 vs 21 | 22 = 15 twin-junction + 7 inherited source-read breakpoints after a 2 kb merge of 38 rows (19 QUAST local + 6 minimap2 local + 13 minimap2 no-local-join). The junction classes are 21 true + 1 containment edge, which is where "21" comes from. ⟦run2_full recount⟧ | State both: "22 breakpoints (15 at walk junctions, 7 from source reads); the 15 junctions use 14 true edges and 1 containment edge" ⟦verify⟧. |
+| Breakpoints 22 vs 21 | Recomputed (`results/run2/trace/bp_*.tsv`, merge within 2 kb). GNNome: 59 raw rows (19 QUAST local + 6 minimap2 local + 13 minimap2 no-local-join + 21 nucmer). **Without nucmer the rows merge to 22; with nucmer, 27.** So the manuscript's "22 breakpoints (QUAST, minimap2 and nucmer combined)" in fact excludes nucmer. The 5 nucmer-only sites (544,265; 548,494; 993,933; 2,153,797; 3,805,161) include one near 993.9 kb that nucmer also reports in Raven and in GNNome-twin, i.e. a reference/alignment feature, not an assembly error. "21" is the count of true walk edges among the 22 junction classes (21 true + 1 containment). Raven: 19 without nucmer, 21 with. GNNome with twin lengths: **6** without nucmer, 7 with. | Line 345: "The wider set of 22 breakpoints (QUAST and minimap2 combined; nucmer adds five low-support sites, one of which it also reports in Raven's assembly) …". Add the twin result (22 → 6). |
 | "twin" label in breakpoint table | no generating code | Classification regenerated by `revision/scripts/analysis/breakpoints.py` + `junction_check.py`. |
 | Table 7 counts (4,555/7,920; 4,772/8,150) | no committed script wrote them | Recomputed by `collect.py` on Run 1R ⟦values⟧; Run 1 values marked non-reproducible. |
 | 36 vs 35 indels > 5 bp | 36 = junctions with |predicted cut error| > 5 bp (30 of 36 match an observed indel); 35 = QUAST indel events > 5 bp, all within 50 bp of a junction (binomial, expected 0.304, p = 7.2 × 10⁻⁷³). | Text states both with definitions. |

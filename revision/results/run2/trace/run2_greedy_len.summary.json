@@ -1,0 +1,325 @@
+{
+ "label": "run2_greedy_len",
+ "assembly_len": 4685609,
+ "events": {
+  "indel_le5": 358178,
+  "mismatch": 114865,
+  "indel_gt5": 484,
+  "breakpoint": 82
+ },
+ "gnnome_walk_rebuild_matches_assembly": true,
+ "gnnome_junctions": 753,
+ "enrichment": {
+  "indel_le5": {
+   "repeat": {
+    "n": 358178,
+    "in_track": 11340,
+    "frac": 0.03166023597205859,
+    "genome_frac": 0.03170299044186963,
+    "fold": 0.9986514057754445,
+    "p_perm_ge": 0.5154845154845155
+   },
+   "homopolymer": {
+    "n": 358178,
+    "in_track": 665,
+    "frac": 0.001856618776139238,
+    "genome_frac": 0.0024823082630670797,
+    "fold": 0.7479404567768085,
+    "p_perm_ge": 1.0
+   },
+   "lowcomplexity": {
+    "n": 358178,
+    "in_track": 908,
+    "frac": 0.002535052404111922,
+    "genome_frac": 0.003282109818033147,
+    "fold": 0.772385003750755,
+    "p_perm_ge": 1.0
+   },
+   "repeat_rRNA": {
+    "n": 358178,
+    "in_track": 2758,
+    "frac": 0.007700082082093261,
+    "genome_frac": 0.008473838569677311,
+    "fold": 0.908688785935473,
+    "p_perm_ge": 0.971028971028971
+   },
+   "repeat_IS_transposase": {
+    "n": 358178,
+    "in_track": 4503,
+    "frac": 0.012571961426999984,
+    "genome_frac": 0.012284786077082457,
+    "fold": 1.023376503922462,
+    "p_perm_ge": 0.21578421578421578
+   },
+   "repeat_Rhs": {
+    "n": 358178,
+    "in_track": 1327,
+    "frac": 0.003704861828476344,
+    "genome_frac": 0.0034983136753630358,
+    "fold": 1.0590422049823403,
+    "p_perm_ge": 0.17282717282717283
+   },
+   "repeat_phage_related": {
+    "n": 358178,
+    "in_track": 497,
+    "frac": 0.0013875782432198516,
+    "genome_frac": 0.0013683457045136863,
+    "fold": 1.0140553214313635,
+    "p_perm_ge": 0.4045954045954046
+   },
+   "repeat_unannotated": {
+    "n": 358178,
+    "in_track": 2189,
+    "frac": 0.006111486467622244,
+    "genome_frac": 0.005923243921802708,
+    "fold": 1.03178031300157,
+    "p_perm_ge": 0.18681318681318682
+   }
+  },
+  "mismatch": {
+   "repeat": {
+    "n": 114865,
+    "in_track": 3670,
+    "frac": 0.031950550646411,
+    "genome_frac": 0.03170299044186963,
+    "fold": 1.0078087335324184,
+    "p_perm_ge": 0.42857142857142855
+   },
+   "homopolymer": {
+    "n": 114865,
+    "in_track": 266,
+    "frac": 0.0023157619814564924,
+    "genome_frac": 0.0024823082630670797,
+    "fold": 0.9329066884687373,
+    "p_perm_ge": 0.8431568431568431
+   },
+   "lowcomplexity": {
+    "n": 114865,
+    "in_track": 333,
+    "frac": 0.002899055412875985,
+    "genome_frac": 0.003282109818033147,
+    "fold": 0.8832901924693327,
+    "p_perm_ge": 0.974025974025974
+   },
+   "repeat_rRNA": {
+    "n": 114865,
+    "in_track": 931,
+    "frac": 0.008105166935097724,
+    "genome_frac": 0.008473838569677311,
+    "fold": 0.9564929598849289,
+    "p_perm_ge": 0.6593406593406593
+   },
+   "repeat_IS_transposase": {
+    "n": 114865,
+    "in_track": 1517,
+    "frac": 0.013206807991990598,
+    "genome_frac": 0.012284786077082457,
+    "fold": 1.0750539658666254,
+    "p_perm_ge": 0.1108891108891109
+   },
+   "repeat_Rhs": {
+    "n": 114865,
+    "in_track": 363,
+    "frac": 0.0031602315761981455,
+    "genome_frac": 0.0034983136753630358,
+    "fold": 0.903358551994396,
+    "p_perm_ge": 0.7652347652347652
+   },
+   "repeat_phage_related": {
+    "n": 114865,
+    "in_track": 155,
+    "frac": 0.0013494101771644974,
+    "genome_frac": 0.0013683457045136863,
+    "fold": 0.9861617372812095,
+    "p_perm_ge": 0.4925074925074925
+   },
+   "repeat_unannotated": {
+    "n": 114865,
+    "in_track": 679,
+    "frac": 0.0059112871631915725,
+    "genome_frac": 0.005923243921802708,
+    "fold": 0.9979813833823179,
+    "p_perm_ge": 0.48451548451548454
+   }
+  },
+  "indel_gt5": {
+   "repeat": {
+    "n": 484,
+    "in_track": 14,
+    "frac": 0.028925619834710745,
+    "genome_frac": 0.03170299044186963,
+    "fold": 0.9123940496322751,
+    "p_perm_ge": 0.6583416583416584
+   },
+   "homopolymer": {
+    "n": 484,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.0024823082630670797,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "lowcomplexity": {
+    "n": 484,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.003282109818033147,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "repeat_rRNA": {
+    "n": 484,
+    "in_track": 5,
+    "frac": 0.010330578512396695,
+    "genome_frac": 0.008473838569677311,
+    "fold": 1.2191143868805243,
+    "p_perm_ge": 0.37162837162837165
+   },
+   "repeat_IS_transposase": {
+    "n": 484,
+    "in_track": 5,
+    "frac": 0.010330578512396695,
+    "genome_frac": 0.012284786077082457,
+    "fold": 0.8409245751270036,
+    "p_perm_ge": 0.6903096903096904
+   },
+   "repeat_Rhs": {
+    "n": 484,
+    "in_track": 1,
+    "frac": 0.002066115702479339,
+    "genome_frac": 0.0034983136753630358,
+    "fold": 0.5906033289781908,
+    "p_perm_ge": 0.8211788211788211
+   },
+   "repeat_phage_related": {
+    "n": 484,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.0013683457045136863,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "repeat_unannotated": {
+    "n": 484,
+    "in_track": 3,
+    "frac": 0.006198347107438017,
+    "genome_frac": 0.005923243921802708,
+    "fold": 1.0464446828911922,
+    "p_perm_ge": 0.5384615384615384
+   }
+  },
+  "breakpoint": {
+   "repeat": {
+    "n": 82,
+    "in_track": 5,
+    "frac": 0.06097560975609756,
+    "genome_frac": 0.03170299044186963,
+    "fold": 1.9233393729182104,
+    "p_perm_ge": 0.1088911088911089
+   },
+   "homopolymer": {
+    "n": 82,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.0024823082630670797,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "lowcomplexity": {
+    "n": 82,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.003282109818033147,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "repeat_rRNA": {
+    "n": 82,
+    "in_track": 1,
+    "frac": 0.012195121951219513,
+    "genome_frac": 0.008473838569677311,
+    "fold": 1.4391496664638384,
+    "p_perm_ge": 0.5124875124875125
+   },
+   "repeat_IS_transposase": {
+    "n": 82,
+    "in_track": 1,
+    "frac": 0.012195121951219513,
+    "genome_frac": 0.012284786077082457,
+    "fold": 0.9927012057596822,
+    "p_perm_ge": 0.6453546453546454
+   },
+   "repeat_Rhs": {
+    "n": 82,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.0034983136753630358,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "repeat_phage_related": {
+    "n": 82,
+    "in_track": 1,
+    "frac": 0.012195121951219513,
+    "genome_frac": 0.0013683457045136863,
+    "fold": 8.9123106178447,
+    "p_perm_ge": 0.12287712287712288
+   },
+   "repeat_unannotated": {
+    "n": 82,
+    "in_track": 2,
+    "frac": 0.024390243902439025,
+    "genome_frac": 0.005923243921802708,
+    "fold": 4.117717288775098,
+    "p_perm_ge": 0.08791208791208792
+   }
+  }
+ },
+ "read_origin": {
+  "indel_le5": {
+   "inherited": 2265,
+   "junction": 20
+  },
+  "mismatch": {
+   "inherited": 712,
+   "junction": 3
+  },
+  "indel_gt5": {
+   "junction": 395,
+   "inherited": 89
+  },
+  "breakpoint": {
+   "inherited": 23,
+   "junction": 59
+  }
+ },
+ "inherited_source_read_identity_mean": 0.8602501141552512,
+ "all_reads_identity_mean": 0.8599525433642597,
+ "junction_distance": {
+  "indel_le5": {
+   "n": 358178,
+   "within_50bp": 4713,
+   "within_500bp": 51681,
+   "expected_within_50bp_if_random": 5813.654411625041
+  },
+  "mismatch": {
+   "n": 114865,
+   "within_50bp": 1472,
+   "within_500bp": 16258,
+   "expected_within_50bp_if_random": 1864.3953955611744
+  },
+  "indel_gt5": {
+   "n": 484,
+   "within_50bp": 336,
+   "within_500bp": 404,
+   "expected_within_50bp_if_random": 7.8558949327611405
+  },
+  "breakpoint": {
+   "n": 82,
+   "within_50bp": 43,
+   "within_500bp": 61,
+   "expected_within_50bp_if_random": 1.3309574059636644
+  }
+ },
+ "junction_origin_events_within_50bp_of_walk_junction": "402/477"
+}

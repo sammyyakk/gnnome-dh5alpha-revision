@@ -13,3 +13,7 @@ drwxr-xr-x 1 sammyyakk sammyyakk         16 Nov 15 02:12 ..
 -rwxr-xr-x 1 sammyyakk sammyyakk       1078 Nov 15 02:18 simulate.sh
 -rw-r--r-- 1 sammyyakk sammyyakk         44 Nov 15 02:18 templates.log
 ccs: /home/sammyyakk/projects/gnnome-revision/work/envs/tools/bin/ccs -j 11 --min-passes 3 --min-rq 0.99 run1r.bam run1r.ccs.fastq.gz
+93f120b3a4596a0ff686e74f6a68578c11aab6b4ea74554e4a15a9ce558a7215  run1r.ccs.fastq.gz
+6ca2628f948122b6e9db16819c841647f9691de8a3ae3ed5124758efbe390d7d  run1r.maf.gz
+95ef9b3d8dbf036fe0c172105d24259d8c3e3e4292548e36ff09b240d0127177  /home/sammyyakk/projects/gnnome-revision/work/src/pbsim3/src/pbsim_fixed
+SIM_DONE

@@ -1,0 +1,240 @@
+kind	cat	typ	len	ref	ctg	repeat_family	repeat_class	repeat_copies	element	homopolymer	lowcomplexity	depth	reads_mean_identity	origin	source_reads	source_identity	junction_dist	junction_src	junction_dst	junction_overlap	junction_prefix	junction_edge_class	junction_prob	junction_src_outdeg	junction_src_spurious_out	sources
+small	indel_gt5	ins	31	2588	292					False	False	7	0.85135	junction	[]		18	S1_7324	S1_10421	6170	310	true	0.80778	3	0	
+small	indel_gt5	del	105	37794	36192					False	False	36	0.85979	junction	[]		1	S1_11848	S1_8678	15687	6201	true	0.81583	3	0	
+small	indel_gt5	del	16	72722	71619					False	False	29	0.85563	junction	[]		0	S1_421	S1_9409	15287	11481	true	0.76104	2	0	
+small	indel_gt5	ins	6	73349	72256					False	False	24	0.85661	inherited	['S1_9409']	0.78594	-637	S1_421	S1_9409	15287	11481	true	0.76104	2	0	
+breakpoint	breakpoint	local_misassembly	19	78009	77069					False	False	26	0.86192	inherited	['S1_9409']	0.78594	-5450	S1_421	S1_9409	15287	11481	true	0.76104	2	0	quast
+breakpoint	breakpoint	local	618	81931	81117					False	False	30	0.85776	inherited	['S1_9409']	0.78594	-9498	S1_421	S1_9409	15287	11481	true	0.76104	2	0	minimap2,minimap2_nolj
+small	indel_gt5	ins	6	89879	89350					False	False	32	0.85047	inherited	['S1_9409']	0.78594	13383	S1_9409	S1_2796	15270	31114	true	0.73949	3	0	
+small	indel_gt5	ins	7	94495	94155					False	False	36	0.85774	inherited	['S1_9409']	0.78594	8578	S1_9409	S1_2796	15270	31114	true	0.73949	3	0	
+small	indel_gt5	del	6	97977	97790					False	False	29	0.85757	inherited	['S1_9409']	0.78594	4943	S1_9409	S1_2796	15270	31114	true	0.73949	3	0	
+breakpoint	breakpoint	local	351	102241	102216					False	False	22	0.85967	inherited	['S1_9409']	0.78594	517	S1_9409	S1_2796	15270	31114	true	0.73949	3	0	minimap2_nolj,nucmer,quast
+small	indel_gt5	del	90	107521	107924					False	False	30	0.85496	junction	[]		0	S1_2796	S1_1298	21961	5191	true	0.80834	5	0	
+small	indel_gt5	ins	22	128064	128847					False	False	38	0.86423	junction	[]		0	S1_1298	S1_2848	5797	20923	true	0.808	6	0	
+small	indel_gt5	del	12	140890	141883					False	False	28	0.86498	junction	[]		0	S1_2848	S1_8825	4164	13036	true	0.81964	4	0	
+small	indel_gt5	ins	9	159440	160757					False	False	31	0.86357	junction	[]		15	S1_13354	S1_11165	5314	9390	true	0.82029	7	0	
+small	indel_gt5	del	6	187088	188858					False	False	28	0.8652	junction	[]		0	S1_11960	S1_9687	13769	17607	true	0.81872	3	0	
+small	indel_gt5	ins	11	237452	240135					False	False	28	0.86061	junction	[]		2	S1_3966	S1_14196	4310	20714	true	0.8123	4	0	
+small	indel_gt5	ins	12	282536	286261					False	False	25	0.86486	junction	[]		0	S1_1797	S1_5654	13817	23255	true	0.76905	3	0	
+small	indel_gt5	del	10	320612	325262					False	False	39	0.85199	junction	[]		0	S1_12510	S1_2601	22018	12558	true	0.8216	1	0	
+small	indel_gt5	ins	6	323740	328438					False	False	37	0.8556	inherited	['S1_2601']	0.89293	-3176	S1_12510	S1_2601	22018	12558	true	0.8216	1	0	
+small	indel_gt5	ins	22	368441	373865					False	False	26	0.859	junction	[]		23	S1_5270	S1_9608	7163	15669	true	0.82451	4	0	
+small	indel_gt5	del	14	382593	388332					False	False	37	0.86028	junction	[]		0	S1_9608	S1_10483	10756	14444	true	0.82586	4	0	
+small	indel_gt5	ins	6	428428	435099					False	False	35	0.86583	inherited	['S1_8134']	0.88934	-4274	S1_6049	S1_8134	5238	17418	true	0.82302	3	0	
+small	indel_gt5	del	23	446490	453500					False	False	30	0.86452	junction	[]		1	S1_8134	S1_13204	7212	22676	true	0.8228	5	0	
+small	indel_gt5	del	7	486901	494666					False	False	36	0.85827	junction	[]		-1	S1_12110	S1_4121	6715	20565	true	0.81906	4	0	
+small	indel_gt5	ins	6	499067	507057					False	False	27	0.86505	inherited	['S1_6094']	0.89265	-6325	S1_4121	S1_6094	20029	6067	true	0.81532	4	0	
+small	indel_gt5	del	143	507008	515117					False	False	28	0.84846	junction	[]		0	S1_6094	S1_12128	16815	14385	true	0.81933	3	0	
+small	indel_gt5	del	17	508451	516447					False	False	33	0.85305	junction	[]		0	S1_12128	S1_14319	25038	1330	true	0.82163	2	0	
+small	indel_gt5	del	6	509426	517426					False	False	34	0.853	inherited	['S1_14319']	0.88361	-979	S1_12128	S1_14319	25038	1330	true	0.82163	2	0	
+small	indel_gt5	del	43	533665	542175					False	False	33	0.85812	junction	[]		0	S1_14319	S1_7412	8336	25728	true	0.81838	3	0	
+small	indel_gt5	del	40	544528	553259					False	False	24	0.86869	junction	[]		0	S1_7412	S1_12241	12164	11084	true	0.8193	4	0	
+small	indel_gt5	del	8	583061	592583	F001	IS_transposase	15		False	False	37	0.86229	junction	[]		0	S1_8523	S1_6620	12474	19446	true	0.79325	2	0	
+small	indel_gt5	del	39	583078	592591	F001	IS_transposase	15		False	False	37	0.86229	junction	[]		-8	S1_8523	S1_6620	12474	19446	true	0.79325	2	0	
+small	indel_gt5	ins	144	597924	607744					False	False	26	0.86326	junction	[]		7	S1_6620	S1_11249	14320	15168	true	0.79504	5	0	
+breakpoint	breakpoint	local	276	613441	623671					False	False	21	0.85261	junction	[]		58	S1_11423	S1_7750	22365	7539	true	0.78453	1	0	minimap2,minimap2_nolj,nucmer,quast
+small	indel_gt5	ins	6	625688	636027	F005	Rhs	5	Rhs:RHS element protein	False	False	29	0.86444	inherited	['S1_7750']	0.84245	10483	S1_7750	S1_13409	13955	22781	true	0.79341	1	0	
+small	indel_gt5	ins	110	635766	646399					False	False	24	0.87291	junction	[]		111	S1_7750	S1_13409	13955	22781	true	0.79341	1	0	
+small	indel_gt5	ins	28	683568	695299					False	False	28	0.86364	junction	[]		28	S1_3296	S1_13196	23490	1326	true	0.81464	4	0	
+small	indel_gt5	del	19	700536	712610					False	False	26	0.86279	junction	[]		2	S1_13196	S1_2069	7691	17285	true	0.77727	3	0	
+small	indel_gt5	del	90	764877	778200					False	False	31	0.862	junction	[]		1	S1_14607	S1_5568	14883	24429	true	0.81442	4	0	
+small	indel_gt5	ins	6	790844	804708					False	False	27	0.85246	inherited	['S1_5568']	0.86866	8105	S1_5568	S1_4963	3116	34612	true	0.79525	5	0	
+small	indel_gt5	ins	9	798771	812811					False	False	34	0.85478	junction	[]		2	S1_5568	S1_4963	3116	34612	true	0.79525	5	0	
+small	indel_gt5	ins	33	806405	820645					False	False	41	0.85607	junction	[]		29	S1_4963	S1_688	16091	7861	true	0.81226	6	0	
+small	indel_gt5	del	8	812822	827250					False	False	30	0.85101	junction	[]		0	S1_688	S1_13816	11456	6576	true	0.82158	5	0	
+small	indel_gt5	ins	50	819799	834385					False	False	36	0.85709	junction	[]		45	S1_8755	S1_7260	25354	4694	true	0.82086	4	0	
+small	indel_gt5	del	22	831141	845998					False	False	41	0.86342	junction	[]		0	S1_7260	S1_13009	13904	11568	true	0.81667	3	0	
+small	indel_gt5	del	32	848435	863622					False	False	27	0.86185	junction	[]		-2	S1_13009	S1_2962	11018	17622	true	0.80913	4	0	
+small	indel_gt5	del	6	857095	872481					False	False	23	0.84945	inherited	['S1_2962']	0.88307	-8861	S1_13009	S1_2962	11018	17622	true	0.80913	4	0	
+small	indel_gt5	ins	14	877970	893770					False	False	28	0.86211	junction	[]		5	S1_2962	S1_4460	1733	30155	true	0.82689	4	0	
+small	indel_gt5	ins	48	886503	902506					False	False	23	0.85385	junction	[]		24	S1_4460	S1_12166	14957	8755	true	0.8245	4	0	
+small	indel_gt5	ins	6	888077	904158					False	False	24	0.85775	inherited	['S1_12166']	0.89322	-1628	S1_4460	S1_12166	14957	8755	true	0.8245	4	0	
+small	indel_gt5	del	8	906180	922586					False	False	30	0.85142	junction	[]		0	S1_12166	S1_13716	10200	20056	true	0.81696	4	0	
+small	indel_gt5	ins	6	910701	927150					False	False	26	0.85514	inherited	['S1_13716']	0.87619	-4564	S1_12166	S1_13716	10200	20056	true	0.81696	4	0	
+small	indel_gt5	ins	32	931535	948399					False	False	28	0.87038	junction	[]		32	S1_13419	S1_5778	13371	6373	true	0.81415	2	0	
+small	indel_gt5	del	7	931640	948536					False	False	28	0.87038	inherited	['S1_5778']	0.87616	-105	S1_13419	S1_5778	13371	6373	true	0.81415	2	0	
+small	indel_gt5	ins	6	945225	962379	F003	IS_transposase	7	IS_transposase:transposase	False	False	21	0.86107	inherited	['S1_5778']	0.87616	8826	S1_5778	S1_14065	4506	22774	true	0.81114	6	0	
+small	indel_gt5	ins	31	953792	971174					False	False	23	0.86864	junction	[]		31	S1_5778	S1_14065	4506	22774	true	0.81114	6	0	
+breakpoint	breakpoint	local	229	956768	974237					False	False	23	0.86323	junction	[]		44	S1_12945	S1_8206	18912	592	true	0.77089	1	0	minimap2,minimap2_nolj,nucmer
+small	indel_gt5	del	235	956813	974283					False	False	23	0.86323	junction	[]		-2	S1_12945	S1_8206	18912	592	true	0.77089	1	0	
+small	indel_gt5	del	7	974491	992340					False	False	28	0.85862	inherited	['S1_8206']	0.82237	-18059	S1_12945	S1_8206	18912	592	true	0.77089	1	0	
+small	indel_gt5	del	6	974541	992386					False	False	28	0.85862	inherited	['S1_8206']	0.82237	-18105	S1_12945	S1_8206	18912	592	true	0.77089	1	0	
+small	indel_gt5	ins	186	993640	1012010	F026	unannotated	1		False	False	37	0.8629	inherited	['S1_8206']	0.82237	306	S1_8206	S1_13788	23245	38035	true	0.77384	6	0	
+small	indel_gt5	ins	84	993726	1012286	F026	unannotated	1		False	False	36	0.86309	junction	[]		30	S1_8206	S1_13788	23245	38035	true	0.77384	6	0	
+breakpoint	breakpoint	local	260	993933	1012313	F026	unannotated	1		False	False	38	0.86391	junction	[]		3	S1_8206	S1_13788	23245	38035	true	0.77384	6	0	nucmer
+small	indel_gt5	ins	6	995709	1014398					False	False	35	0.86764	inherited	['S1_13788']	0.88711	-2082	S1_8206	S1_13788	23245	38035	true	0.77384	6	0	
+small	indel_gt5	ins	7	1008324	1027258					False	False	28	0.87086	junction	[]		7	S1_6429	S1_12391	9863	10041	true	0.82521	4	0	
+small	indel_gt5	ins	6	1036077	1055569					False	False	31	0.85828	junction	[]		7	S1_12391	S1_8641	9209	28311	true	0.81442	4	0	
+small	indel_gt5	del	7	1059075	1079080					False	False	36	0.86588	inherited	['S1_13149']	0.86859	-3001	S1_8641	S1_13149	10457	20503	true	0.80281	4	0	
+small	indel_gt5	del	14	1082557	1103083					False	False	25	0.87222	junction	[]		0	S1_13149	S1_12304	16612	27004	true	0.80689	3	0	
+small	indel_gt5	ins	54	1088889	1109548					False	False	30	0.86217	junction	[]		5	S1_12304	S1_13481	15850	6470	true	0.81836	3	0	
+small	indel_gt5	ins	13	1165743	1188033					False	False	21	0.86489	junction	[]		13	S1_5581	S1_13877	9720	20104	true	0.82479	6	0	
+small	indel_gt5	ins	36	1172501	1194934					False	False	20	0.86393	junction	[]		36	S1_13877	S1_4990	6996	6924	true	0.82061	4	0	
+small	indel_gt5	del	24	1180305	1202918					False	False	21	0.84164	junction	[]		3	S1_4990	S1_4700	4449	7951	true	0.81951	5	0	
+small	indel_gt5	del	50	1192535	1215415					False	False	35	0.86445	junction	[]		0	S1_4700	S1_11256	5042	12494	true	0.79968	5	0	
+small	indel_gt5	ins	18	1238784	1262610					False	False	26	0.86699	junction	[]		7	S1_10222	S1_13372	12973	3987	true	0.82101	3	0	
+small	indel_gt5	del	68	1251464	1275510				IS_transposase:transposase	False	False	19	0.86019	junction	[]		1	S1_13372	S1_12004	13442	12894	true	0.82495	2	0	
+small	indel_gt5	ins	7	1262739	1286937					False	False	28	0.86294	inherited	['S1_12004']	0.89118	-11426	S1_13372	S1_12004	13442	12894	true	0.82495	2	0	
+small	indel_gt5	del	67	1288792	1313432					False	False	30	0.86615	junction	[]		0	S1_12004	S1_3906	4495	37921	true	0.79844	6	0	
+small	indel_gt5	ins	23	1295009	1319752					False	False	28	0.86184	junction	[]		23	S1_3906	S1_984	14793	6343	true	0.79605	3	0	
+small	indel_gt5	ins	25	1349937	1375840					False	False	30	0.86503	junction	[]		28	S1_14557	S1_13184	4069	32555	true	0.80339	5	0	
+small	indel_gt5	del	47	1362487	1388659					False	False	25	0.85937	junction	[]		1	S1_13184	S1_10220	7720	12792	true	0.78795	2	0	
+small	indel_gt5	ins	7	1400029	1426994					False	False	31	0.86565	junction	[]		10	S1_11533	S1_1267	6392	21432	true	0.80397	5	0	
+small	indel_gt5	del	63	1445016	1472953					False	False	34	0.85875	junction	[]		0	S1_5316	S1_5028	9201	27151	true	0.79133	4	0	
+breakpoint	breakpoint	local	239	1466330	1494760					False	False	34	0.85766	junction	[]		264	S1_5028	S1_11573	25561	22071	true	0.77888	1	0	minimap2_nolj,nucmer,quast
+small	indel_gt5	ins	6	1515437	1545124					False	False	28	0.86229	junction	[]		2	S1_11573	S1_13604	6234	50102	true	0.82403	3	0	
+small	indel_gt5	del	32	1599247	1630596					False	False	15	0.86714	junction	[]		1	S1_2648	S1_9414	13418	16406	true	0.7873	5	0	
+small	indel_gt5	ins	73	1627093	1659023					False	False	32	0.85267	junction	[]		73	S1_7387	S1_5642	9685	13179	true	0.80382	3	0	
+small	indel_gt5	del	202	1628089	1660103					False	False	31	0.85048	junction	[]		1	S1_5642	S1_11054	26544	1008	true	0.78722	3	0	
+breakpoint	breakpoint	local	202	1628092	1660106					False	False	31	0.85048	junction	[]		-2	S1_5642	S1_11054	26544	1008	true	0.78722	3	0	nucmer
+small	indel_gt5	ins	6	1628940	1660767					False	False	32	0.84826	inherited	['S1_11054']	0.85059	-663	S1_5642	S1_11054	26544	1008	true	0.78722	3	0	
+small	indel_gt5	ins	6	1793371	1828985					False	False	38	0.86118	junction	[]		5	S1_12906	S1_10781	6707	15357	true	0.82093	5	0	
+small	indel_gt5	del	34	1829757	1866101					False	False	34	0.8643	junction	[]		2	S1_9811	S1_844	8810	27318	true	0.81317	4	0	
+small	indel_gt5	del	26	1846821	1883514					False	False	28	0.86334	junction	[]		2	S1_844	S1_7682	3691	17413	true	0.81631	4	0	
+small	indel_gt5	del	69	1870408	1907592					False	False	30	0.85607	junction	[]		3	S1_2829	S1_2346	13334	10042	true	0.80711	2	0	
+small	indel_gt5	ins	6	1892834	1930511					False	False	30	0.85341	inherited	['S1_2346']	0.87536	2183	S1_2346	S1_1160	7797	25099	true	0.81506	4	0	
+small	indel_gt5	ins	32	1894944	1932662					False	False	27	0.85986	junction	[]		32	S1_2346	S1_1160	7797	25099	true	0.81506	4	0	
+small	indel_gt5	ins	24	1899413	1937255					False	False	31	0.86136	junction	[]		-1	S1_1160	S1_10985	18512	4560	true	0.81563	3	0	
+small	indel_gt5	del	6	1938967	1977606					False	False	33	0.86916	inherited	['S1_12249']	0.87528	-510	S1_8025	S1_12249	25975	3145	true	0.8179	2	0	
+small	indel_gt5	del	7	2020284	2060621					False	False	30	0.85791	junction	[]		0	S1_14760	S1_11741	13627	25861	true	0.81324	4	0	
+small	indel_gt5	ins	6	2206048	2249800					False	False	25	0.86862	inherited	['S1_9206']	0.8891	1428	S1_9206	S1_11148	11160	25880	true	0.82599	4	0	
+small	indel_gt5	ins	66	2207412	2251199					False	False	26	0.87218	junction	[]		29	S1_9206	S1_11148	11160	25880	true	0.82599	4	0	
+small	indel_gt5	del	34	2245359	2289853					False	False	31	0.86005	junction	[]		-2	S1_6596	S1_9867	10995	14045	true	0.82156	5	0	
+small	indel_gt5	ins	105	2249974	2294560					False	False	33	0.85973	junction	[]		56	S1_9867	S1_9478	16723	4765	true	0.81528	3	0	
+small	indel_gt5	ins	6	2253186	2297909					False	False	31	0.8661	inherited	['S1_9478']	0.89143	-3293	S1_9867	S1_9478	16723	4765	true	0.81528	3	0	
+small	indel_gt5	del	6	2281639	2326863					False	False	27	0.87015	inherited	['S1_9033']	0.87732	-6680	S1_9478	S1_9033	3377	25567	true	0.82381	3	0	
+small	indel_gt5	del	6	2307026	2352767					False	False	32	0.86288	junction	[]		0	S1_519	S1_9828	4771	13037	true	0.82205	9	0	
+small	indel_gt5	del	24	2321837	2367855					False	False	31	0.86651	junction	[]		0	S1_9828	S1_9920	9184	15088	true	0.82176	4	0	
+small	indel_gt5	ins	6	2341957	2388412					False	False	17	0.86008	junction	[]		5	S1_9920	S1_12948	1134	20562	true	0.81658	2	0	
+small	indel_gt5	del	13	2350754	2397392					False	False	14	0.8561	junction	[]		0	S1_12948	S1_962	6609	8975	true	0.80617	4	0	
+small	indel_gt5	ins	6	2351322	2397958					False	False	16	0.85415	inherited	['S1_962']	0.86866	-566	S1_12948	S1_962	6609	8975	true	0.80617	4	0	
+small	indel_gt5	ins	9	2364478	2411478					False	False	24	0.85656	junction	[]		9	S1_962	S1_9637	321	14095	true	0.82243	5	0	
+small	indel_gt5	ins	7	2371753	2418886					False	False	24	0.85989	junction	[]		7	S1_9637	S1_8663	15090	7406	true	0.73685	6	0	
+small	indel_gt5	del	6	2372337	2419516					False	False	26	0.86104	inherited	['S1_8663']	0.7721	-623	S1_9637	S1_8663	15090	7406	true	0.73685	6	0	
+small	indel_gt5	ins	184	2380911	2428467					False	False	34	0.85577	junction	[]		1	S1_8663	S1_7702	9497	9575	true	0.71054	5	0	
+small	indel_gt5	ins	6	2386580	2434448					False	False	33	0.85783	inherited	['S1_7702']	0.8401	-5980	S1_8663	S1_7702	9497	9575	true	0.71054	5	0	
+small	indel_gt5	ins	63	2404542	2452999					False	False	32	0.87091	junction	[]		63	S1_7702	S1_8833	7870	24594	true	0.78996	3	0	
+small	indel_gt5	ins	16	2453439	2502976					False	False	33	0.86701	junction	[]		17	S1_9866	S1_10054	6521	23927	true	0.82702	7	0	
+small	indel_gt5	del	60	2521047	2571939					False	False	30	0.85556	junction	[]		-2	S1_10620	S1_4854	17911	3849	true	0.7683	3	0	
+small	indel_gt5	del	71	2527466	2578522					False	False	32	0.86034	junction	[]		0	S1_4854	S1_2734	20135	6585	true	0.75346	1	0	
+small	indel_gt5	del	6	2540851	2592274					False	False	31	0.86158	inherited	['S1_2734']	0.82166	6035	S1_2734	S1_13261	18565	19787	true	0.77054	1	0	
+breakpoint	breakpoint	local	202	2546661	2598243					False	False	33	0.85527	junction	[]		66	S1_2734	S1_13261	18565	19787	true	0.77054	1	0	minimap2_nolj,quast
+small	indel_gt5	ins	6	2572707	2625128					False	False	26	0.85915	junction	[]		5	S1_13261	S1_10865	14312	26824	true	0.81351	4	0	
+small	indel_gt5	del	6	2589080	2641820					False	False	31	0.86952	inherited	['S1_10865']	0.87596	11900	S1_10865	S1_2740	7125	28587	true	0.80884	2	0	
+small	indel_gt5	ins	47	2627517	2681127					False	False	23	0.85946	junction	[]		7	S1_9614	S1_6012	13847	11049	true	0.81137	3	0	
+small	indel_gt5	ins	6	2628491	2682154					False	False	22	0.85683	inherited	['S1_6012']	0.89	-1020	S1_9614	S1_6012	13847	11049	true	0.81137	3	0	
+small	indel_gt5	ins	54	2645890	2699916					False	False	26	0.85775	junction	[]		54	S1_6012	S1_9603	5740	18836	true	0.823	4	0	
+small	indel_gt5	ins	8	2688872	2743715					False	False	22	0.86277	junction	[]		8	S1_13721	S1_71	17727	1089	true	0.77278	2	0	
+small	indel_gt5	ins	6	2704411	2759670					False	False	30	0.85921	inherited	['S1_71']	0.84218	15415	S1_71	S1_10409	622	31362	true	0.79421	7	0	
+small	indel_gt5	ins	6	2711760	2767240	F010	unannotated	3		False	False	26	0.8594	inherited	['S1_71']	0.84218	7845	S1_71	S1_10409	622	31362	true	0.79421	7	0	
+small	indel_gt5	del	6	2744311	2800430					False	False	25	0.87173	junction	[]		0	S1_10409	S1_3619	16143	25345	true	0.79768	3	0	
+small	indel_gt5	ins	6	2763492	2819944					False	False	27	0.85705	junction	[]		4	S1_3619	S1_8724	5202	19518	true	0.79873	2	0	
+small	indel_gt5	ins	7	2767235	2823758					False	False	27	0.8605	junction	[]		5	S1_8724	S1_3355	26089	3815	true	0.80609	3	0	
+small	indel_gt5	del	6	2807262	2864612					False	False	30	0.86065	junction	[]		0	S1_3425	S1_6837	13336	33096	true	0.81614	6	0	
+small	indel_gt5	del	28	2818078	2875628					False	False	24	0.86539	junction	[]		1	S1_6837	S1_2590	11655	11017	true	0.82737	2	0	
+small	indel_gt5	ins	49	2853751	2912029					False	False	36	0.85945	junction	[]		49	S1_2590	S1_6179	6623	36449	true	0.8161	3	0	
+small	indel_gt5	del	14	2870575	2929218					False	False	24	0.87703	junction	[]		4	S1_11896	S1_9848	9695	6817	true	0.81135	5	0	
+small	indel_gt5	del	7	2871907	2930555					False	False	29	0.87244	junction	[]		-1	S1_9848	S1_11506	23500	1332	true	0.78783	2	0	
+small	indel_gt5	ins	40	2900153	2959484					False	False	30	0.86563	junction	[]		37	S1_11506	S1_6120	9785	28967	true	0.78947	2	0	
+small	indel_gt5	del	30	2906706	2966173					False	False	23	0.86465	junction	[]		0	S1_6120	S1_7832	14404	6652	true	0.78145	1	0	
+small	indel_gt5	ins	86	2924533	2984380					False	False	25	0.86028	junction	[]		86	S1_7832	S1_14827	26203	18293	true	0.76476	4	0	
+small	indel_gt5	ins	7	2938919	2999212					False	False	28	0.84621	inherited	['S1_14827']	0.85902	12951	S1_14827	S1_7545	927	27697	true	0.78209	4	0	
+small	indel_gt5	ins	6	2969846	3030854					False	False	42	0.86612	inherited	['S1_9412']	0.89217	-16019	S1_7545	S1_9412	25856	2672	true	0.81366	4	0	
+small	indel_gt5	ins	9	2986356	3047717					False	False	20	0.84384	junction	[]		0	S1_9412	S1_5216	1086	32882	true	0.82689	5	0	
+small	indel_gt5	ins	139	2987305	3048686					False	False	18	0.85411	junction	[]		8	S1_5216	S1_11892	17695	977	true	0.8152	4	0	
+small	indel_gt5	del	7	2996384	3058098					False	False	29	0.86526	inherited	['S1_9303']	0.88402	-4207	S1_11892	S1_9303	14115	5197	true	0.81474	3	0	
+small	indel_gt5	del	50	3030707	3093124					False	False	24	0.83838	junction	[]		0	S1_9303	S1_848	2927	39233	true	0.77315	2	0	
+small	indel_gt5	ins	83	3040404	3103080					False	False	24	0.86426	junction	[]		83	S1_848	S1_2275	7145	10039	true	0.78376	2	0	
+small	indel_gt5	ins	67	3070428	3133862					False	False	29	0.85711	junction	[]		41	S1_7294	S1_5878	10982	22490	true	0.82289	2	0	
+small	indel_gt5	del	30	3073797	3137368					False	False	24	0.86146	junction	[]		0	S1_5878	S1_2118	12551	3465	true	0.81946	1	0	
+small	indel_gt5	del	7	3104328	3168524					False	False	34	0.85922	junction	[]		0	S1_2118	S1_12983	19276	31156	true	0.80686	3	0	
+breakpoint	breakpoint	local	253	3112441	3176827					False	False	38	0.8573	junction	[]		-1	S1_12983	S1_11228	16290	8302	true	0.76593	1	0	nucmer,quast
+breakpoint	breakpoint	local_misassembly	58	3126793	3191389	F004	IS_transposase	7	IS_transposase:IS2 repressor TnpA	False	False	39	0.86276	inherited	['S1_11228']	0.843	-14563	S1_12983	S1_11228	16290	8302	true	0.76593	1	0	quast
+small	indel_gt5	ins	6	3129336	3194061					False	False	39	0.8676	inherited	['S1_11228']	0.843	-17235	S1_12983	S1_11228	16290	8302	true	0.76593	1	0	
+small	indel_gt5	del	7	3129888	3194627					False	False	41	0.86795	inherited	['S1_11228']	0.843	-17801	S1_12983	S1_11228	16290	8302	true	0.76593	1	0	
+small	indel_gt5	ins	6	3137954	3202900					False	False	35	0.86225	inherited	['S1_11228']	0.843	-26074	S1_12983	S1_11228	16290	8302	true	0.76593	1	0	
+small	indel_gt5	ins	7	3139098	3204064					False	False	35	0.86553	inherited	['S1_11228']	0.843	-27238	S1_12983	S1_11228	16290	8302	true	0.76593	1	0	
+breakpoint	breakpoint	local_misassembly	20	3153081	3218391					False	False	40	0.85752	inherited	['S1_11228']	0.843	23913	S1_11228	S1_11865	6378	65478	true	0.80731	5	0	quast
+small	indel_gt5	del	6	3156267	3221675					False	False	41	0.85582	inherited	['S1_11228']	0.843	20629	S1_11228	S1_11865	6378	65478	true	0.80731	5	0	
+small	indel_gt5	ins	7	3160830	3226395					False	False	35	0.85489	inherited	['S1_11228']	0.843	15909	S1_11228	S1_11865	6378	65478	true	0.80731	5	0	
+small	indel_gt5	ins	6	3161962	3227582					False	False	33	0.85528	inherited	['S1_11228']	0.843	14722	S1_11228	S1_11865	6378	65478	true	0.80731	5	0	
+small	indel_gt5	ins	8	3163668	3229374					False	False	32	0.85429	inherited	['S1_11228']	0.843	12930	S1_11228	S1_11865	6378	65478	true	0.80731	5	0	
+small	indel_gt5	ins	35	3176153	3242286					False	False	34	0.85702	junction	[]		18	S1_11228	S1_11865	6378	65478	true	0.80731	5	0	
+small	indel_gt5	ins	12	3198462	3264993					False	False	24	0.87424	junction	[]		13	S1_11865	S1_493	6434	22702	true	0.80992	2	0	
+small	indel_gt5	del	7	3211492	3278298					False	False	23	0.85882	inherited	['S1_493']	0.86801	11493	S1_493	S1_11532	3679	24785	true	0.81163	3	0	
+small	indel_gt5	del	56	3226506	3293633					False	False	29	0.86164	junction	[]		11	S1_11532	S1_13226	22611	3853	true	0.8146	5	0	
+small	indel_gt5	ins	84	3233040	3300227					False	False	41	0.86528	junction	[]		62	S1_13226	S1_206	20331	6645	true	0.81713	4	0	
+small	indel_gt5	ins	21	3240599	3308023					False	False	46	0.86427	junction	[]		5	S1_206	S1_5943	14821	7739	true	0.81803	3	0	
+small	indel_gt5	ins	57	3288135	3356564					False	False	30	0.85567	junction	[]		9	S1_9509	S1_930	12142	20834	true	0.82556	5	0	
+small	indel_gt5	ins	22	3308873	3377676					False	False	36	0.87047	junction	[]		8	S1_930	S1_4575	3913	21111	true	0.83082	4	0	
+small	indel_gt5	del	23	3316623	3385626					False	False	29	0.8725	junction	[]		0	S1_4575	S1_328	18490	7942	true	0.82223	7	0	
+small	indel_gt5	ins	51	3324598	3393745					False	False	26	0.86692	junction	[]		11	S1_328	S1_13902	10670	8130	true	0.82043	5	0	
+small	indel_gt5	ins	6	3339918	3409379					False	False	35	0.86643	inherited	['S1_13902']	0.88974	4914	S1_13902	S1_3636	1831	20537	true	0.8225	4	0	
+small	indel_gt5	ins	11	3344723	3414281					False	False	31	0.86042	junction	[]		12	S1_13902	S1_3636	1831	20537	true	0.8225	4	0	
+small	indel_gt5	ins	78	3360625	3430513					False	False	22	0.86887	junction	[]		75	S1_3636	S1_11254	9177	16295	true	0.82282	2	0	
+small	indel_gt5	del	105	3362443	3432420					False	False	25	0.87127	junction	[]		4	S1_11254	S1_10038	12772	1836	true	0.81013	6	0	
+small	indel_gt5	ins	33	3369334	3439339	F002	rRNA	8		False	False	25	0.85288	junction	[]		19	S1_10038	S1_10282	6554	6934	true	0.80027	4	0	
+small	indel_gt5	ins	21	3388320	3458692					False	False	39	0.85563	junction	[]		16	S1_10282	S1_4894	3498	19350	true	0.80789	2	0	
+small	indel_gt5	ins	22	3404288	3474960					False	False	34	0.8513	junction	[]		21	S1_4894	S1_13200	4719	16273	true	0.8256	6	0	
+small	indel_gt5	del	21	3420531	3491596					False	False	22	0.86503	junction	[]		-1	S1_13200	S1_9832	1418	16614	true	0.80959	4	0	
+small	indel_gt5	del	9	3432677	3504034					False	False	21	0.84671	junction	[]		0	S1_9832	S1_9012	6761	12439	true	0.80846	3	0	
+small	indel_gt5	ins	53	3432775	3504121					False	False	21	0.84671	junction	[]		3	S1_9012	S1_10442	15766	90	true	0.80769	2	0	
+small	indel_gt5	ins	6	3435966	3507426					False	False	26	0.85476	inherited	['S1_10442']	0.88752	-3302	S1_9012	S1_10442	15766	90	true	0.80769	2	0	
+small	indel_gt5	del	40	3446354	3518036					False	False	37	0.85698	junction	[]		1	S1_10442	S1_13982	9255	13913	true	0.81059	2	0	
+small	indel_gt5	ins	77	3465564	3537633					False	False	34	0.86847	junction	[]		2	S1_13982	S1_9294	13378	19598	true	0.80318	5	0	
+small	indel_gt5	del	48	3474848	3547169					False	False	26	0.85765	junction	[]		3	S1_9294	S1_9264	10959	9537	true	0.82498	4	0	
+small	indel_gt5	ins	16	3501672	3574497					False	False	29	0.87337	junction	[]		0	S1_9264	S1_4494	3427	27325	true	0.81938	6	0	
+small	indel_gt5	del	26	3513576	3586593					False	False	40	0.87395	junction	[]		0	S1_4494	S1_2948	9008	12096	true	0.82005	6	0	
+small	indel_gt5	ins	32	3527420	3600714					False	False	33	0.86465	junction	[]		22	S1_2948	S1_13685	7425	14143	true	0.82195	4	0	
+small	indel_gt5	del	9	3557176	3630939					False	False	22	0.86105	junction	[]		0	S1_13685	S1_13034	8293	30203	true	0.83094	5	0	
+small	indel_gt5	del	22	3595493	3669922					False	False	40	0.86306	junction	[]		1	S1_9387	S1_4014	7678	22354	true	0.81558	3	0	
+small	indel_gt5	ins	9	3643697	3719013					False	False	24	0.86005	junction	[]		9	S1_14313	S1_3105	4336	17776	true	0.81273	6	0	
+small	indel_gt5	del	25	3654069	3729586					False	False	29	0.87226	junction	[]		0	S1_3105	S1_1886	9676	10564	true	0.82203	5	0	
+small	indel_gt5	del	51	3657903	3733479					False	False	27	0.87083	junction	[]		5	S1_1886	S1_5939	22534	3898	true	0.8193	3	0	
+small	indel_gt5	ins	6	3748013	3825390					False	False	31	0.85563	inherited	['S1_7356']	0.88296	4412	S1_7356	S1_7129	14521	32695	true	0.82116	6	0	
+small	indel_gt5	ins	10	3765565	3843212					False	False	25	0.85726	junction	[]		2	S1_2093	S1_1200	8091	8229	true	0.82647	4	0	
+small	indel_gt5	del	101	3770559	3848302					False	False	32	0.86432	junction	[]		1	S1_1200	S1_1126	29407	5089	true	0.80814	4	0	
+small	indel_gt5	ins	6	3802045	3880411					False	False	39	0.85677	inherited	['S1_1126']	0.87435	867	S1_1126	S1_4291	305	32975	true	0.8459	4	0	
+small	indel_gt5	ins	67	3846941	3926123					False	False	31	0.86802	junction	[]		4	S1_7254	S1_9310	12955	10997	true	0.80733	4	0	
+small	indel_gt5	ins	12	3861345	3940861					False	False	35	0.85991	junction	[]		13	S1_9310	S1_12811	3253	14747	true	0.81678	4	0	
+small	indel_gt5	ins	42	3873971	3953706					False	False	35	0.85175	junction	[]		29	S1_12811	S1_2144	11987	12861	true	0.82373	3	0	
+small	indel_gt5	del	13	3907057	3987442					False	False	28	0.87114	junction	[]		1	S1_2144	S1_8987	3748	33708	true	0.8135	5	0	
+small	indel_gt5	del	8	3910878	3991344					False	False	27	0.872	junction	[]		0	S1_8987	S1_7851	13795	3901	true	0.76861	3	0	
+small	indel_gt5	del	80	3911055	3991513					False	False	29	0.87188	junction	[]		0	S1_7851	S1_4406	13703	169	true	0.80077	2	0	
+small	indel_gt5	ins	6	3923686	4004372					False	False	28	0.86916	inherited	['S1_4406']	0.86817	2191	S1_4406	S1_2913	6294	15050	true	0.80203	4	0	
+small	indel_gt5	del	15	3943194	4024363					False	False	29	0.86728	junction	[]		0	S1_2913	S1_7554	5064	17800	true	0.80529	4	0	
+small	indel_gt5	ins	6	3957717	4039091					False	False	20	0.86372	inherited	['S1_6875']	0.88512	-1346	S1_4525	S1_6875	8830	2274	true	0.81416	2	0	
+small	indel_gt5	del	21	3967477	4049010					False	False	22	0.87143	junction	[]		0	S1_6875	S1_5810	975	11265	true	0.81026	3	0	
+small	indel_gt5	ins	6	3971969	4053590					False	False	31	0.87205	inherited	['S1_5810']	0.89304	-4580	S1_6875	S1_5810	975	11265	true	0.81026	3	0	
+small	indel_gt5	del	6	3974175	4055843					False	False	31	0.86901	inherited	['S1_5810']	0.89304	5860	S1_5810	S1_1005	8427	12693	true	0.8252	5	0	
+small	indel_gt5	del	11	3979906	4061703	F002	rRNA	8	rRNA:23S ribosomal RNA	False	False	31	0.86763	junction	[]		0	S1_5810	S1_1005	8427	12693	true	0.8252	5	0	
+small	indel_gt5	ins	30	3983656	4065505					False	False	31	0.86155	junction	[]		3	S1_1005	S1_472	14819	3805	true	0.81456	6	0	
+small	indel_gt5	ins	14	4037290	4120194					False	False	25	0.86846	junction	[]		15	S1_5918	S1_6379	12927	10529	true	0.8213	4	0	
+small	indel_gt5	ins	23	4053732	4136991					False	False	23	0.86353	junction	[]		24	S1_8422	S1_12712	2308	11836	true	0.80026	5	0	
+small	indel_gt5	del	135	4059987	4143372					False	False	29	0.8612	junction	[]		0	S1_12712	S1_8782	21019	6357	true	0.81969	3	0	
+small	indel_gt5	del	8	4061367	4144646					False	False	32	0.85855	junction	[]		0	S1_8782	S1_6375	28070	1274	true	0.80214	2	0	
+small	indel_gt5	del	7	4068055	4151496					False	False	27	0.86824	inherited	['S1_6375']	0.85913	-6850	S1_8782	S1_6375	28070	1274	true	0.80214	2	0	
+small	indel_gt5	del	6	4106951	4191348	F002	rRNA	8		False	False	34	0.8583	inherited	['S1_7139']	0.87688	1325	S1_7139	S1_12290	9756	15204	true	0.81499	3	0	
+small	indel_gt5	del	6	4123979	4208662					False	False	30	0.8655	inherited	['S1_12290']	0.89065	1226	S1_12290	S1_7286	9985	17215	true	0.82003	6	0	
+small	indel_gt5	ins	25	4125155	4209884					False	False	25	0.86603	junction	[]		4	S1_12290	S1_7286	9985	17215	true	0.82003	6	0	
+small	indel_gt5	del	28	4136698	4221660					False	False	23	0.86041	junction	[]		0	S1_7286	S1_7989	5748	11772	true	0.81507	5	0	
+small	indel_gt5	del	6	4147944	4233088					False	False	25	0.86665	junction	[]		0	S1_7989	S1_13628	19276	11428	true	0.82963	3	0	
+small	indel_gt5	ins	32	4163250	4248697					False	False	27	0.87428	junction	[]		8	S1_13628	S1_9196	7231	15617	true	0.81662	2	0	
+small	indel_gt5	del	8	4181883	4267748					False	False	38	0.86173	junction	[]		0	S1_9196	S1_2101	12237	19043	true	0.81499	5	0	
+small	indel_gt5	ins	75	4188283	4274277					False	False	39	0.85906	junction	[]		57	S1_2101	S1_1078	13702	6586	true	0.8109	3	0	
+small	indel_gt5	del	66	4189366	4275463					False	False	42	0.85933	junction	[]		0	S1_1078	S1_6766	15143	1129	true	0.81285	3	0	
+small	indel_gt5	del	7	4202798	4289099					False	False	23	0.85085	junction	[]		2	S1_6766	S1_7489	3050	13638	true	0.80689	2	0	
+small	indel_gt5	ins	41	4250815	4338097					False	False	31	0.85377	junction	[]		24	S1_5372	S1_6706	8621	21667	true	0.82322	3	0	
+small	indel_gt5	del	21	4264551	4352101					False	False	30	0.85764	junction	[]		-2	S1_6706	S1_5180	9846	13978	true	0.7921	4	0	
+small	indel_gt5	ins	46	4275898	4363697					False	False	27	0.85421	junction	[]		9	S1_5180	S1_8016	6633	11607	true	0.79572	4	0	
+small	indel_gt5	ins	8	4315459	4404001					False	False	37	0.86054	junction	[]		8	S1_3603	S1_1407	15572	12748	true	0.8033	3	0	
+small	indel_gt5	ins	15	4358877	4448452					False	False	40	0.863	junction	[]		15	S1_13668	S1_9464	2185	23815	true	0.82426	8	0	
+small	indel_gt5	ins	52	4414975	4505666					False	False	33	0.86413	junction	[]		52	S1_166	S1_7343	9527	36057	true	0.81736	2	0	
+small	indel_gt5	del	19	4433591	4524672					False	False	26	0.86205	junction	[]		0	S1_7343	S1_3399	23318	18954	true	0.81216	3	0	
+small	indel_gt5	del	6	4456980	4548552					False	False	23	0.84917	inherited	['S1_3399']	0.87604	6120	S1_3399	S1_10822	2272	30000	true	0.80634	6	0	
+small	indel_gt5	del	41	4472644	4564530					False	False	29	0.86138	junction	[]		0	S1_10822	S1_13167	4014	9858	true	0.82063	6	0	
+small	indel_gt5	ins	71	4473705	4565568					False	False	27	0.86183	junction	[]		17	S1_13167	S1_12376	16289	1055	true	0.82227	6	0	
+small	indel_gt5	ins	6	4483652	4575754	F003	IS_transposase	7	IS_transposase:transposase	False	False	28	0.86499	inherited	['S1_12376']	0.89078	6362	S1_12376	S1_4492	3261	16531	true	0.81999	7	0	
+small	indel_gt5	del	33	4489874	4582116					False	False	31	0.8691	junction	[]		0	S1_12376	S1_4492	3261	16531	true	0.81999	7	0	
+small	indel_gt5	ins	45	4500060	4592476					False	False	36	0.85933	junction	[]		12	S1_4492	S1_12063	16892	10372	true	0.82299	5	0	
+small	indel_gt5	del	14	4575489	4669592					False	False	9	0.86883	junction	[]		0	S1_14396	S1_6470	4398	16354	true	0.8106	1	0	

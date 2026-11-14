@@ -1,0 +1,9 @@
+assembly	source	type	ref_left	ref_right	contig_left	contig_right	ref_jump	contig_gap	discrepancy	identity
+run2_gnnome_twin	minimap2	local	81931	97248	81243	97178	15317	15935	-618	0.8443/0.8820
+run2_gnnome_twin	minimap2_nolj	local	81931	97248	81243	97178	15317	15935	-618	0.8443/0.8820
+run2_gnnome_twin	nucmer	local	993893	993471	1014339	1013714	-422	-625	203	0.8883/0.8918
+run2_gnnome_twin	quast	local_misassembly	78009	78597	77195	77802	588	607	-19	88.91
+run2_gnnome_twin	quast	local_misassembly	1650442	1651315	1685483	1686401	873	918	-45	89.27
+run2_gnnome_twin	quast	local_misassembly	2736537	2737475	2795701	2796709	938	1008	-70	88.34
+run2_gnnome_twin	quast	local_misassembly	3126793	3127403	3195304	3195972	610	668	-58	87.92
+run2_gnnome_twin	quast	local_misassembly	3153081	3153577	3222306	3222822	496	516	-20	89.45
