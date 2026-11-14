@@ -1,0 +1,25 @@
+diff --git i/RavenLib/src/assemble.cc w/RavenLib/src/assemble.cc
+index 2058f7f..cf59a93 100644
+--- i/RavenLib/src/assemble.cc
++++ w/RavenLib/src/assemble.cc
+@@ -870,6 +870,20 @@ void Assemble(std::shared_ptr<thread_pool::ThreadPool> threadPool, Graph& graph,
+ 
+   PrintCsv(graph, "graph_1.csv", false, false, true);
+   PrintGfa(graph, "graph_1.gfa");
++  {  // [revision patch] export both directional overlap lengths; graph_1.gfa unchanged
++    std::ofstream tw("graph_1.twin.tsv");
++    tw << "tail\ttail_strand\thead\thead_strand\tol\ttwin_tail\ttwin_tail_strand\ttwin_head\ttwin_head_strand\ttwin_ol\n";
++    for (const auto& it : graph.edges) {
++      if (it == nullptr || it->is_rc()) continue;
++      const auto* p = it->pair;
++      tw << it->tail->sequence.name << '\t' << (it->tail->is_rc() ? '-' : '+') << '\t'
++         << it->head->sequence.name << '\t' << (it->head->is_rc() ? '-' : '+') << '\t'
++         << (it->tail->sequence.inflated_len - it->length) << '\t'
++         << p->tail->sequence.name << '\t' << (p->tail->is_rc() ? '-' : '+') << '\t'
++         << p->head->sequence.name << '\t' << (p->head->is_rc() ? '-' : '+') << '\t'
++         << (p->tail->sequence.inflated_len - p->length) << '\n';
++    }
++  }
+ 
+   if (graph.stage == -3) {  // remove transitive edges
+     StageExecution(graph, checkpoints, RemoveTransitiveEdges);

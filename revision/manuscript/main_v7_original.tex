@@ -1,0 +1,405 @@
+\documentclass[a4paper]{llncs}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{url}
+\usepackage{seqsplit}
+\usepackage{capt-of}
+\usepackage[font={footnotesize,it},labelfont={footnotesize,it},labelsep=period,position=below,skip=2pt]{caption}
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage[final,expansion=false]{microtype}
+\urlstyle{rm}
+\AtBeginDocument{\renewcommand{\doi}[1]{\url{https://doi.org/#1}}}
+
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.88}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\setlength{\textfloatsep}{4pt plus 2pt minus 2pt}
+\setlength{\floatsep}{4pt plus 2pt minus 2pt}
+\setlength{\intextsep}{4pt plus 2pt minus 2pt}
+\setlength{\emergencystretch}{2em}
+
+\renewcommand{\labelitemi}{\textbullet}
+\renewcommand{\arraystretch}{1.0}
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}{-13\p@ \@plus -3\p@ \@minus -3\p@}{7\p@ \@plus 2\p@ \@minus 2\p@}{\normalfont\large\bfseries\boldmath\rightskip=\z@ \@plus 8em\pretolerance=10000 }}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-11\p@ \@plus -3\p@ \@minus -3\p@}{5\p@ \@plus 2\p@ \@minus 2\p@}{\normalfont\normalsize\bfseries\boldmath\rightskip=\z@ \@plus 8em\pretolerance=10000 }}
+\makeatother
+\raggedbottom
+\begin{document}
+\title{Evaluating a Pretrained Graph Neural Network Assembler on \emph{E.\ coli} DH5$\alpha$ Long Reads}
+\titlerunning{Read Selection, Not Repeat Resolution}
+\author{Anonymous Authors}
+\authorrunning{Anonymous Authors}
+\institute{Affiliation withheld for blind review}
+\maketitle
+
+\begin{abstract}
+\textbf{Background and objective:} GNNome scores assembly-graph edges with a graph neural network, but has been evaluated only on eukaryotic genomes, and its accuracy differences from other assemblers have not been explained. This paper explores whether the pretrained model transfers to \emph{E.\ coli} DH5$\alpha$, with Raven-generated rather than Hifiasm-derived graphs, and what mechanism explains any difference from Raven.
+
+\textbf{Methods:} Accurate (60$\times$, 99.84\% mean identity) and noisy (30$\times$, 86.01\% mean identity) long reads were simulated, and one Raven graph per run was resolved by Raven and by pretrained GNNome. Every edge and assembly error was traced against the simulation truth, and 23 controlled evaluations were run (21 simulated replicates and two 50\% subsamples of the Run~1 reads).
+
+\textbf{Results:} Unpolished, GNNome made 44\% fewer mismatches and 41\% fewer indels than Raven on accurate reads and was more accurate in 19 of 21 simulated replicates and in both Run~1 subsamples. Its walk copies cleaner reads, which in Run~1 predicts the error counts to within 3--5\%. The cause is its overlap-similarity input, which tracks read error (Spearman $\rho \approx -0.9$); with that input neutralized, choice of the cleanest read falls to approximately chance level, although a weaker preference for cleaner reads remains. In these graphs its walk used no spurious or identified mis-anchored edge, which does not show general repeat resolution. Its Run~1 large indels trace to a parser that assigns one overlap length to each edge and its reverse-complement twin. After Racon polishing no significant difference was detected, which does not establish equivalence.
+
+\textbf{Conclusion:} On this simulated DH5$\alpha$ dataset, pretrained GNNome's advantage arises from implicit, overlap-similarity-driven preference for cleaner reads during graph traversal, rather than from explicit read filtering or repeat resolution.
+
+\keywords{genome assembly \and graph neural networks \and GNNome \and edge scoring \and out-of-distribution generalization \and read selection \and polishing}
+\end{abstract}
+
+%=================================================================
+\section{Introduction}
+
+\subsection{Background}
+
+Long-read assemblers record the overlaps between reads as an assembly graph (reads as nodes, overlaps as edges) and resolve it into contiguous sequences (contigs). Classical assemblers such as Raven~\cite{raven} use hand-written simplification rules, and the contig is usually polished afterwards with a consensus tool such as Racon~\cite{racon}.
+
+Learned assemblers replace these hand-written rules with a trained model. GNNome~\cite{gnnome} scores each overlap edge with a graph neural network (GNN) and follows high-scoring edges to build contigs. It was trained on simulated reads from six chromosomes of human HG002, validated on five other HG002 chromosomes, and subsequently evaluated on CHM13, mouse, \emph{A.\ thaliana}  and chicken. Its reported accuracy is mixed: per-base quality is lower than that of Hifiasm~\cite{hifiasm} on three of the four evaluated genomes and higher on one, and on ONT data it has more misassemblies than heuristic assemblers~\cite{gnnome}. The original study does not evaluate a bacterial genome and does not explain where its accuracy differences come from.
+
+\emph{E.\ coli} DH5$\alpha$ is a useful test for both points. Its genome (CP017100.1, 4{,}583{,}637~bp) is small enough to assemble many times on a laptop, it has a complete reference and an independent long-read benchmark~\cite{dh5bench}, and its repeats (rRNA operons, insertion-sequence (IS) elements and Rhs genes) are few and well annotated, so every assembly error can be traced to its cause. It is also a genome GNNome was never trained on. The evaluation involves two distribution shifts: eukaryotic to bacterial genomes, and Hifiasm-derived graphs (original pipeline) to Raven-generated graphs, so it assesses transfer across biological and graph-construction domains.
+
+\subsection{Literature Review}
+
+\textbf{Learned assembly.} Early work showed that a GNN can be trained to operate on assembly graphs, a first step towards neural genome assembly~\cite{neuralasm}, and GNNome~\cite{gnnome} developed this idea into a complete assembler. Graph transformers have since been used to assemble genomes from HiFi reads~\cite{gtasm}, and geometric deep learning has been extended to diploid assembly in combination with beam search~\cite{dipgnnome}. All were evaluated on eukaryotic genomes, and none relates accuracy to the reads its decoder copies.
+
+\textbf{Repeats in bacterial genomes.} Tandem duplications arise through recombination between short DNA homologies~\cite{tdrecomb} and between ribosomal RNA genes in \emph{Escherichia coli}~\cite{rrnadup}, and a mutation within such a duplication can be selected during experimental evolution~\cite{tdadapt}. Repeats of this kind lead to sequence assembly errors and create problems for genome and protein databases~\cite{tderrors}. Methods exist to detect exact tandem repeats on the de Bruijn graph~\cite{dextar}, to detect repeats in metagenomic assembly with graph-based self-supervised learning~\cite{metarepeat}, and to detect and correct false segmental duplications caused by misassembly~\cite{segdup}. None tests a learned edge scorer against simulation ground truth.
+
+\textbf{Upstream pipeline stages.} Learning has also been applied before the graph is built: low-quality segments can be removed from nanopore reads with a convolutional neural network~\cite{miniscrub}, and overlaps between long reads can be detected by dimensionality reduction and approximate nearest-neighbour search~\cite{fedrann}. Both improve the inputs to the graph, but neither links read quality to how a learned decoder chooses reads. Table~\ref{tab:landscape} summarizes these groups and the gap that each leaves for this study.
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{3.3cm}}
+\toprule
+Theme & Works & What they address & Gap relative to this study \\
+\midrule
+Learned edge scoring and neural assembly & GNNome~\cite{gnnome}, neural assembly~\cite{neuralasm}, GTasm~\cite{gtasm}, DipGNNome~\cite{dipgnnome} & GNN or graph-transformer scoring of assembly-graph edges & Evaluated on eukaryotic genomes; accuracy differences not explained \\
+Bacterial assembly benchmarking & DH5$\alpha$ benchmark~\cite{dh5bench} & Classical long-read assemblers on \emph{E.\ coli} DH5$\alpha$ & No learned edge-scoring stage \\
+Origin of bacterial duplications & \cite{tdrecomb,rrnadup,tdadapt} & How duplications arise and are selected in \emph{E.\ coli} & Not linked to a learned assembler \\
+Computational effect of repeats & \cite{tderrors,dextar,metarepeat,segdup} & Repeats cause assembly errors; detection and correction & Not tested against a learned edge scorer with ground truth \\
+Upstream pipeline stages & MiniScrub~\cite{miniscrub}, FEDRANN~\cite{fedrann} & Read-segment scrubbing; overlap detection & Read quality not linked to how a learned decoder chooses reads \\
+\bottomrule
+\end{tabular}
+\caption{Related work grouped by theme, with the gap addressed here.}
+\label{tab:landscape}
+\end{table}
+
+\subsection{Objectives and Contributions}
+
+\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parsep}{0pt}
+\sloppy
+\item To confirm on the \emph{E.\ coli} K-12 example data that the published GNNome pipeline runs correctly, and then to evaluate whether the pretrained model, without retraining, assembles \emph{E.\ coli} DH5$\alpha$ as accurately as Raven~\cite{raven} when both resolve the same assembly graph, on accurate and on noisy reads.
+\item To test that comparison across 21 simulated replicates that vary read accuracy, depth and read length, plus two subsamples of the Run~1 reads (23 evaluations), and to trace every edge and assembly error against simulation ground truth.
+\item To identify the mechanism behind any difference by relating each assembler's errors to the reads it copies, and to test whether GNNome's overlap-similarity input drives its choice of reads by neutralizing that input.
+\item To examine how GNNome's walk handles repeat-induced spurious edges and mis-anchored true edges in these graphs, and whether its edge ranking and its edge probabilities remain reliable on accurate and on noisy reads.
+\item To locate the source of GNNome's large indels, and to measure whether Racon polishing removes its unpolished advantage.
+\item To document a case in which a stale input graph produced a convincing false failure, and the checks that now guard against it.
+\end{itemize}
+
+The paper is structured as follows. Section~1 introduces the background, related literature, and objectives. Section~\ref{sec:methods} details the methodology, including read simulation, graph construction and evaluation. Section~\ref{sec:results} presents the results, Section~\ref{sec:discussion} discusses the findings, Section~\ref{sec:limits} covers limitations and future work, and Section~6 concludes. The appendix defines the QUAST metrics used (Table~\ref{tab:metrics}).
+
+%=================================================================
+\section{Methodology}\label{sec:methods}
+
+\subsection{Study Design}
+
+Fig.~\ref{fig:workflow} shows the workflow. Three design rules make the comparison fair. Both assemblers resolve the \emph{same} Raven graph, so they differ only in how the graph becomes a contig. GNNome is used with its published weights and no retraining. It compares graph-resolution strategies on one Raven graph, not two complete assemblers. All results are checked against simulation ground truth rather than inferred from the assembly alone.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.7\textwidth]{fig1_workflow.pdf}
+\caption{Experimental workflow and run conditions. Both runs simulate long reads from \emph{E.\ coli} DH5$\alpha$ (CP017100.1), build one Raven graph, and give that same graph to Raven and to pretrained GNNome. Every read, edge and error is traced against the simulation truth.}
+\label{fig:workflow}
+\end{figure}
+
+\subsection{Datasets and Read Simulation}
+
+Reads were simulated with PBSIM3~\cite{pbsim3} from the DH5$\alpha$ reference (Fig.~\ref{fig:reads}). \emph{Run~1} has 14{,}884 accurate reads (60$\times$, mean length $18.5\pm2.2$~kb, 99.84\% mean identity to the reference; median 99.93\%). \emph{Run~2} has 14{,}874 noisy reads (30$\times$, $9.2\pm7.1$~kb, 86.01\% mean identity; median 87.10\%), generated with the QSHMM-RSII model and seed 1783636376; regenerating them reproduces the file byte for byte. Both runs share the same error-type proportions (substitution : insertion : deletion = 6 : 55 : 39). The PBSIM3 build and command used for Run~1 could not be recovered (the build on disk caps simulated identity at about 96\%, below the Run~1 reads), so Run~1 cannot be regenerated exactly. As a pipeline control, GNNome's published pipeline was run unmodified on the \emph{E.\ coli} K-12 example data distributed with it (HiFi reads; reference NC\_000913.3, 4{,}641{,}652~bp).
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.64\textwidth]{fig2.pdf}
+\caption{Read characteristics and graph complexity. (a) Read length and (b) per-read identity from the simulation truth. (c) True read depth in 20~kb bins. (d) Node out-degree. (e) Share of transitive edges and of nodes with more than one or three successors. (f) Graph size. The accurate, longer Run~1 reads give a far denser graph (12.9 vs.\ 3.9 edges per node).}
+\label{fig:reads}
+\end{figure}
+
+\subsection{Graph Construction and Assembly}
+
+For each run, Raven~1.8.1 (a fork that exports its graph) built one graph with polishing disabled (\texttt{-p0}). Run~1's graph has 2{,}897 segments and 37{,}364 links (5{,}794 directed nodes, 74{,}728 directed edges); Run~2's has 762 segments and 2{,}968 links (1{,}524 nodes, 5{,}936 edges). Raven produced its own contig from this graph. GNNome converted the same graph, scored every edge with the pretrained SymGatedGCN model (220{,}529 parameters, 8 GNN layers) and decoded a contig by a greedy walk along the highest-scoring edges. The decoder is GNNome's own \texttt{inference.py} at the commit in Table~\ref{tab:env}, invoked with only the data, assembler, output and model arguments; we did not compare it with the original publication's description, so conclusions apply to the walk as run here. The Run~1 Raven and GNNome commands were reconstructed rather than logged; re-inference with the same weights reproduces the Run~1 assembly and walks byte for byte. Each edge carries exactly two input features (Section~\ref{sec:why}). Every GNNome contig rebuilt from its walk is byte-identical to the saved assembly, every GNNome input graph was matched edge by edge to the Raven graph file it came from, and sampled graph segments were matched to the source reads.
+
+\subsection{Evaluation}
+Assemblies were scored with QUAST~5.3.0~\cite{quast} against CP017100.1. Unpolished Run~2 assemblies are about 88\% identical to the reference, below QUAST's default 95\% alignment threshold, so they were scored with \texttt{--min-identity 80}. Breakpoints were confirmed with minimap2~\cite{minimap2} and nucmer~\cite{mummer}. Both assemblies were polished identically with minimap2 and Racon~\cite{racon} (two rounds). Repeats were annotated from the GenBank record and a nucmer self-alignment. Using the simulator's read positions, every edge was labelled \emph{true}, \emph{containment} or \emph{spurious} (reads from different loci), and every assembly error was traced to its source read or to a GNNome walk junction. Paired differences were tested in forty-six 100~kb windows (Wilcoxon signed-rank test, block-bootstrap 95\% CI). Repeat enrichment used permutation tests with Benjamini--Hochberg correction over 176 tests.
+
+\subsection{Replicates and Feature Ablation}
+
+Twenty-one replicates (7 conditions $\times$ 3 seeds) varied read accuracy (85--99\% target), depth (30$\times$, 60$\times$) and read length (9, 18.5~kb), each through the identical pipeline; the first condition uses the Run~2 settings. Two 50\% subsamples of the real Run~1 reads cover the accurate regime, because the available PBSIM3 build cannot simulate it, giving 23 evaluations in all. Inferential tests use the 21 simulated replicates, each as one unit; the two subsamples share source reads and are not independent, so they are reported separately and not tested. To test why GNNome selects cleaner reads, the pretrained model was re-run on both graphs with the overlap-similarity input replaced by its mean; with real inputs it reproduces the saved edge scores to within about 0.001.
+
+\subsection{Environment}
+
+Table~\ref{tab:env} lists the software. All runs used an Intel Core i5-12450HX (8 cores, 12 threads, 2.4~GHz) with 16~GB DDR5-4800 RAM under WSL2. All stages ran on the CPU: GNNome's inference script fixes the device to CPU, and Raven was built without CUDA.
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lp{8.0cm}}
+\toprule
+Item & Value \\
+\midrule
+GNNome & \texttt{github.com/lbcb-sci/GNNome}, commit \texttt{\seqsplit{418c7d30e9bd2e4dcf521deebf42a5ba07836c9f}}; default weights (SHA-256 prefix \texttt{240076f0}) \\
+Python stack & Python 3.8.20, PyTorch 1.9.0+cu111, DGL-cu111 0.8.1 \\
+Graph and assembly & Raven 1.8.1 (\texttt{print\_graphs} fork, commit \texttt{3207c8d}); Hifiasm 0.18.8 (K-12 control) \\
+Simulation & PBSIM3 (Run~2: commit \texttt{35ce0de}, QSHMM-RSII; Run~1: build and command not recovered) \\
+Evaluation and polishing & QUAST 5.3.0, minimap2 2.28, nucmer 3.1, Racon 1.5.0 \\
+\bottomrule
+\end{tabular}
+\caption{Software and provenance.}
+\label{tab:env}
+\end{table}
+
+%=================================================================
+\section{Results}\label{sec:results}
+
+\subsection{Pipeline Control: K-12}
+
+On the K-12 example data, GNNome resolved Hifiasm's raw unitig graph into a single 4{,}640{,}719~bp contig with no misassemblies (Table~\ref{tab:k12}). It differs from Hifiasm's own assembly by a single 1~bp deletion. The pipeline therefore runs correctly. Raven, run separately on the same reads with default settings and its own graph, had far higher per-base error. Because the graphs differ, this comparison checks the pipeline only and is not used to compare the assemblers.
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{lrrr}
+\toprule
+Metric & \shortstack[r]{GNNome\\(Hifiasm graph)} & \shortstack[r]{Hifiasm\\(own assembly)} & \shortstack[r]{Raven\\(own graph)} \\
+\midrule
+Contigs & 1 & 1 & 1 \\
+Total length (bp) & 4,640,719 & 4,640,720 & 4,635,257 \\
+Genome fraction (\%) & 99.980 & 99.980 & 99.843 \\
+Misassemblies & 0 & 0 & 0 \\
+Mismatches / 100 kbp & 0.02 & 0.02 & 15.53 \\
+Indels / 100 kbp & 0.06 & 0.04 & 149.85 \\
+NGA50 (bp) & 4,640,716 & 4,640,717 & 4,635,257 \\
+\bottomrule
+\end{tabular}
+\caption{Pipeline control on the K-12 example data (QUAST 5.3.0, reference NC\_000913.3).}
+\label{tab:k12}
+\end{table}
+
+\subsection{GNNome vs.\ Raven on DH5$\alpha$}
+
+Unpolished, GNNome is more accurate than Raven in both runs, and neither assembler has any extensive misassemblies (Table~\ref{tab:main}, Fig.~\ref{fig:perf}). Run~2 nevertheless has local misassemblies in both (15 for Raven, 19 for GNNome). In Run~1, GNNome has 44\% fewer mismatches and 41\% fewer indels; in Run~2 the reductions are 8\% and 4\%. The paired window test confirms both (Table~\ref{tab:windows}): GNNome has fewer errors in all 46 windows in Run~1 and in 43 of 46 in Run~2. After two rounds of Racon no significant difference was detected. In Run~1 both polished assemblies become byte-identical and are an exact substring of the reference, missing only about 3.2~kb at the uncovered ends of the linear simulation. In Run~2 they have 29.4 and 30.6 errors per 100~kbp, which is not significantly different. Both externally polished assemblies are more accurate than Raven's built-in two-round polishing (36.3 errors per 100~kbp).
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.3cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.7cm}}
+\toprule
+Assembly & Mismatches /100 kbp & Indels /100 kbp & Misassemb. (local) & Genome fraction (\%) \\
+\midrule
+Run 1 Raven, unpolished & 15.45 & 160.98 & 0 (0) & 99.930 \\
+Run 1 GNNome, unpolished & 8.60 & 94.45 & 0 (0) & 99.930 \\
+Run 1 Raven + Racon $\times$2 & 0.00 & 0.00 & 0 & 99.930 \\
+Run 1 GNNome + Racon $\times$2 & 0.00 & 0.00 & 0 & 99.930 \\
+\midrule
+Run 2 Raven, unpolished$^{\dagger}$ & 2,481 & 7,742 & 0 (15) & 99.375 \\
+Run 2 GNNome, unpolished$^{\dagger}$ & 2,279 & 7,438 & 0 (19) & 99.786 \\
+Run 2 Raven + Racon $\times$2 & 0.74 & 28.66 & 0 & 99.867 \\
+Run 2 GNNome + Racon $\times$2 & 0.76 & 29.88 & 0 & 99.867 \\
+Run 2 Raven, built-in \texttt{-p 2} & 1.09 & 35.25 & 0 & 99.867 \\
+\bottomrule
+\end{tabular}
+\caption{Assembly accuracy on DH5$\alpha$ (QUAST 5.3.0). $^{\dagger}$Scored with \texttt{--min-identity 80}.}
+\label{tab:main}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.5cm}>{\raggedleft\arraybackslash}p{2.4cm}>{\raggedleft\arraybackslash}p{2.0cm}>{\raggedleft\arraybackslash}p{1.8cm}>{\raggedleft\arraybackslash}p{1.6cm}}
+\toprule
+Comparison & GNNome $-$ Raven, errors /100 kbp & 95\% CI & Windows GNNome lower & Wilcoxon $p$ \\
+\midrule
+Run 1, unpolished & $-73.1$ & [$-85.5$, $-61.2$] & 46 / 46 & $3.5\times10^{-9}$ \\
+Run 2, unpolished & $-480$ & [$-580$, $-387$] & 43 / 46 & $5.6\times10^{-9}$ \\
+Run 2, Racon $\times$2 & $+1.2$ & [$-0.4$, $+2.8$] & 18 / 46 & 0.12 \\
+\bottomrule
+\end{tabular}
+\caption{Paired comparison in forty-six 100~kb windows at the same genome positions.}
+\label{tab:windows}
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.56\textwidth]{fig6.pdf}
+\caption{Assembly performance and polishing (QUAST 5.3.0; Run~2 unpolished scored with \texttt{--min-identity 80}). (a,b) Mismatches and indels per 100~kbp before polishing and after one and two rounds of minimap2 + Racon, for Run~1 (linear scale) and Run~2 (log scale). (c) Relative change in GNNome's unpolished error rates compared with Raven's. (d) Run~2 local misassemblies by polishing round; neither assembler has any extensive misassembly in any run.}
+\label{fig:perf}
+\end{figure}
+
+The controlled evaluations show the same pattern (Table~\ref{tab:replicates}). Unpolished, GNNome is more accurate in 19 of 21 simulated replicates (Wilcoxon $p=1.8\times10^{-5}$), and its advantage grows with read accuracy, by 0.14 percentage points (pp) of assembly identity per pp of read identity (12 replicates of the four accuracy conditions; $r=0.95$, $p=2\times10^{-6}$), reaching $+3.06$~pp with accurate, deep, long reads. In both Run~1 subsamples GNNome is also more accurate unpolished (+0.08~pp; $n=2$, not tested). After polishing, GNNome is better in only 8 of 21 simulated replicates ($p=0.07$, not significant); a non-significant result does not establish equivalence.
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrr}
+\toprule
+\shortstack[l]{Accuracy,\\depth, length} & \shortstack[r]{Read\\identity\\(\%)} & \shortstack[r]{Unpolished\\identity (\%),\\Raven\\$\rightarrow$ GNNome} & \shortstack[r]{$\Delta$\\(pp)} & \shortstack[r]{95\%\\CI} & \shortstack[r]{GNNome\\better} & \shortstack[r]{Polished\\errors per\\100 kbp,\\Raven / GNNome} \\
+\midrule
+85\%, 30$\times$, 9 kb$^{\dagger}$ & 85.95 & 88.15$\,\rightarrow\,$88.17 & +0.02 & [$-0.36$, +0.40] & 2/3 & 29.7 / 30.8 \\
+90\%, 30$\times$, 9 kb & 90.41 & 91.29$\,\rightarrow\,$91.95 & +0.65 & [+0.03, +1.28] & 3/3 & 3.63 / 3.91 \\
+95\%, 30$\times$, 9 kb & 95.08 & 95.33$\,\rightarrow\,$96.58 & +1.25 & [+1.08, +1.41] & 3/3 & 0.30 / 0.27 \\
+99\%$^{*}$, 30$\times$, 9 kb & 96.05 & 96.38$\,\rightarrow\,$97.84 & +1.47 & [+0.68, +2.26] & 3/3 & 0.49 / 0.14 \\
+85\%, 60$\times$, 9 kb & 85.96 & 88.00$\,\rightarrow\,$88.19 & +0.19 & [+0.13, +0.25] & 3/3 & 11.5 / 12.1 \\
+85\%, 30$\times$, 18.5 kb & 86.03 & 87.99$\,\rightarrow\,$88.06 & +0.07 & [$-0.40$, +0.54] & 2/3 & 30.1 / 30.8 \\
+99\%$^{*}$, 60$\times$, 18.5 kb & 96.05 & 96.42$\,\rightarrow\,$99.49 & +3.06 & [+2.89, +3.24] & 3/3 & 0.47 / 0.47 \\
+Run 1 reads, 50\%$^{\ddagger}$ & 99.84 & 99.82$\,\rightarrow\,$99.90 & +0.08 & [+0.02, +0.15] & 2/2 & 0.00 / 0.00 \\
+\bottomrule
+\end{tabular*}
+\caption{Controlled evaluations (21 simulated replicates, 3 seeds per condition; plus two subsamples). $^{*}$The available PBSIM3 build caps simulated identity at about 96\%. $^{\dagger}$Run~2 settings. $^{\ddagger}$Two 50\% subsamples of the Run~1 reads ($n=2$).}
+\label{tab:replicates}
+\end{table}
+
+\subsection{Read Selection Explains the Advantage}
+
+Without polishing, every base of an assembly is copied from exactly one read, so the quality of the reads an assembler copies sets its error count. In Run~1, GNNome's walk uses 395 reads (median contribution 11.6~kb) whose length-weighted error is 0.104\%; Raven's layout uses 2{,}109 reads (1.9~kb) at 0.178\% (Table~\ref{tab:selection}). The error expected from these reads alone (4{,}772 for GNNome, 8{,}150 for Raven) is within 3--5\% of the errors observed. Only 5 of GNNome's 395 reads come from the worst 10\% of all reads, where 40 would be expected by chance. Predicted and observed counts are reported for Run~1 only; Run~2 shows the same pattern in read quality, and GNNome copies cleaner reads than Raven in all 21 simulated replicates ($p=9.5\times10^{-7}$) and in both subsamples. Raven's copied reads are about as error-prone as the average read; for example, at 85\% accuracy (30$\times$, 18.5~kb) Raven's copied reads have 13.35\% error, GNNome's 12.30\%, and all reads 13.89\% (means of 3 seeds).
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{llrrrr}
+\toprule
+Run & Assembler & Reads used & Median piece & Weighted read error & Predicted / observed \\
+\midrule
+Run 1 & Raven & 2,109 & 1.9 kb & 0.178\% & 8,150 / 7,920 \\
+Run 1 & GNNome & 395 & 11.6 kb & 0.104\% & 4,772 / 4,555 \\
+\midrule
+\multicolumn{6}{>{\raggedright\arraybackslash}p{10.2cm}}{Median per-read error difference, GNNome $-$ Raven: Run 1 $-0.021$~pp [$-0.030$, $-0.007$]; Run 2 $-0.50$~pp [$-0.86$, $-0.25$]} \\
+\bottomrule
+\end{tabular}
+\caption{Quality of the reads each assembler copies (Run 1). Predicted errors use source-read quality only.}
+\label{tab:selection}
+\end{table}
+
+\subsection{Why GNNome Selects Cleaner Reads}\label{sec:why}
+
+GNNome's model receives two numbers per edge: overlap length and overlap similarity, defined as $1 - d/\ell$, where $d$ is the edit distance between the overlapping ends of the two reads (computed with edlib~\cite{edlib}) and $\ell$ is the overlap length. The pretrained weights take exactly this two-dimensional edge input. Two reads that cover the same stretch of genome differ only through sequencing errors, so overlap similarity measures read accuracy. Table~\ref{tab:why} gives the chain of evidence: similarity tracks the true error of the two reads, the model's edge score rises with similarity, and at walk steps with other true options GNNome took the cleaner next read in 85\% (Run~1) and 76\% (Run~2) of cases. With similarity neutralized, the top-scored edge leads to the cleanest read at approximately chance level (6.2\% vs.\ 8.3\% in Run~1; 28.5\% vs.\ 28.3\% in Run~2), but neutralizing weakens rather than eliminates the preference: a residual preference for a read cleaner than the mean of the alternatives remains (65\% in Run~1, 56\% in Run~2, vs.\ 50\% expected; Table~\ref{tab:why}). We have not tested whether it comes from the overlap-length input. In Run~2 the edge score also correlates with overlap length ($\rho=0.64$), so length may contribute there as well.
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\raggedright\arraybackslash}p{6.6cm}>{\raggedleft\arraybackslash}p{2.0cm}>{\raggedleft\arraybackslash}p{2.0cm}}
+\toprule
+Evidence (true edges) & Run 1 & Run 2 \\
+\midrule
+Spearman $\rho$, overlap similarity vs.\ true error of the two reads & $-0.91$ & $-0.95$ \\
+Spearman $\rho$, model edge score vs.\ overlap similarity & $+0.58$ & $+0.72$ \\
+Walk steps with true alternatives where the cleaner next read was taken & 85\% of 393 & 76\% of 524 \\
+\quad Wilcoxon $p$ & $6\times10^{-35}$ & $2\times10^{-34}$ \\
+\midrule
+Top-scored edge leads to a read cleaner than the mean of the alternatives: normal / similarity neutralized & 85\% / 65\% & 77\% / 56\% \\
+Top-scored edge leads to the cleanest read: normal / similarity neutralized (chance) & 10.1\% / 6.2\% (8.3\%) & 44.2\% / 28.5\% (28.3\%) \\
+\bottomrule
+\end{tabular}
+\caption{Why GNNome selects cleaner reads. Upper block: steps of the actual walk. Lower block: top-scored edge at every node with at least two true out-edges, with the pretrained model re-run with overlap similarity replaced by its mean; it uses a different comparison, so its values differ slightly from the walk-step values.}
+\label{tab:why}
+\end{table}
+
+\subsection{Edge Ranking, Calibration and Repeats}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.62\textwidth]{fig3.pdf}
+\caption{GNNome edge predictions. (a,b) Edge logits by ground-truth class (log scale); spurious edges are shown individually. (c) ROC curves for true vs.\ all non-true edges. (d) Edges used by the GNNome walk, with the total in each class. No spurious edge was used.}
+\label{fig:edges}
+\end{figure}
+
+The graphs contain very few false overlaps: Run~1 has 74{,}684 true, 42 containment and 2 spurious edges; Run~2 has 5{,}874, 58 and 4 (Fig.~\ref{fig:edges}). GNNome's walk used no spurious edge in either run or in any replicate (one replicate took a single 20~bp backward step between two near-duplicate reads), and in neither run did it score a spurious edge above the best true alternative at the same node. Its ranking of true over spurious edges is high (AUROC 0.9999 in Run~1, 0.897 in Run~2), but these values rest on only 2 and 4 spurious edges and should be interpreted cautiously; against all non-true edges, including containments, the AUROC is 0.71 and 0.58. The probabilities do not transfer: the median predicted probability of a true edge is 0.93 in Run~1 but $3\times10^{-9}$ in Run~2. On noisy reads the model is out of distribution and its probabilities collapse, yet the ranking that drives the greedy walk is preserved; ranking performance and probability calibration are distinct properties.
+
+
+The genome has 33 repeat families at 101 loci (145~kb, 3.2\% of the genome), including 7 rRNA operons, 5 Rhs copies and 9 IS families. The two spurious edges in Run~1 are a 179~bp chance match at a tRNA-Lys locus; all four in Run~2 join Rhs copies. Repeats also cause \emph{mis-anchored} true edges (correct reads, wrong offset): 17 of 18 in Run~1 start inside a repeat (Fisher OR = 513, $p=8\times10^{-25}$). In these graphs GNNome's walk used none of them (not evidence of general repeat resolution); Raven used one per run, and in Run~1 this produced the only repeat-caused assembly error in the study, a 393~bp collapse inside a tandem tRNA-Met cluster (Fig.~\ref{fig:regional}c). Across 176 permutation tests, no repeat class is enriched for errors in any assembly (Fig.~\ref{fig:repeats}); the only significant enrichments are residual small indels in homopolymers and low-complexity sequence after polishing ($q=0.029$). Every annotated repeat copy is spanned by at least 33 reads in Run~1 and 8 in Run~2.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{fig5.pdf}
+\caption{Repeat-associated errors and read support. (a) Fold enrichment of error events in each repeat class (permutation test); * marks the only results significant after Benjamini--Hochberg correction over 176 tests ($q<0.05$, small indels in homopolymers and low-complexity sequence after polishing). (b) Origin of unpolished errors. (c) True read depth at error sites. (d) Reads spanning each annotated repeat copy.}
+\label{fig:repeats}
+\end{figure}
+
+\subsection{The Source of GNNome's Large Indels}
+
+GNNome's few large indels have a single identified cause. Raven computes two overlap lengths for each overlap, one for the edge $A \rightarrow B$ and one for its reverse-complement twin, and these can differ. The graph file stores one, and GNNome's parser assigns that one length to both edges; a comment in GNNome's code states this is intended to enforce consistency between an edge and its twin. When the walk uses a twin edge whose true overlap length differs, it cuts the read at the wrong place, leaving an indel at the junction (Fig.~\ref{fig:regional}d). In Run~1 the indel predicted from this cut error matches the observed indel at 370 of 394 junctions ($r=0.998$, Fig.~\ref{fig:regional}b), and all 35 indels longer than 5~bp lie within 50~bp of a junction (0.3 expected by chance, $p=7\times10^{-73}$); Raven has 3 such indels. Twin edges are off by more than 5~bp in 30.3\% of cases in Run~1 and 93.7\% in Run~2 (mean 81~bp), against 0.05\% and 25.5\% for written edges. In Run~2, mapping each of QUAST's 19 GNNome local misassemblies to the nearest traced breakpoint assigns 13 to twin-edge walk junctions (true cut errors of 197--342~bp) and 6 to errors present in the copied source reads (reads S1\_9409, S1\_2717, S1\_11228 and S1\_11606, whose identities of 78.6--84.3\% are all below the Run~2 mean of 86.0\%). Four of these 6 (at 78{,}009, 2{,}736{,}537, 3{,}126{,}793 and 3{,}153{,}081) also occur in Raven's assembly at the same positions and from the same source reads. The wider set of 22 breakpoints (QUAST, minimap2 and nucmer combined) adds two twin-edge junctions (at 570{,}153 and 956{,}768) that QUAST did not flag as local misassemblies, giving 15 twin-edge and 7 source-read breakpoints; none is left unexplained. Raven is unaffected because it keeps both lengths internally.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{fig4.pdf}
+\caption{Regional investigation. (a) Breakpoints against the DH5$\alpha$ reference for each assembly (nucmer and minimap2), with rRNA, IS and Rhs positions below. The excluded old Run~2 GNNome assembly shows the breakpoint pattern of the K-12 reference itself. (b) At each of GNNome's 394 Run~1 walk junctions, the indel predicted from the overlap-length error vs.\ the observed indel. (c) The only repeat-induced Raven error in Run~1: a mis-placed overlap inside a tandem tRNA cluster. (d) Mechanism of GNNome's large indels.}
+\label{fig:regional}
+\end{figure}
+
+\subsection{A False Failure from a Stale Input Graph}
+
+An earlier version of this study reported 23 misassemblies by GNNome on DH5$\alpha$, clustered near a 1{,}258~bp repeat. That run is excluded. The Raven build used then does not write the graph file GNNome reads, so GNNome loaded a leftover \emph{E.\ coli} K-12 graph with the same file name; matching every node and edge confirmed the source. The resulting contig is a K-12 assembly scored against the DH5$\alpha$ reference. Aligning the K-12 and DH5$\alpha$ references directly, with no assembler, reproduces the same breakpoints (Fig.~\ref{fig:regional}a), including an inversion of about 210~kb and a breakpoint at a copy of an IS3-family insertion element whose two nearby copies are 99.92\% identical over 1{,}258~bp. The apparent repeat-linked failure was a strain difference. Two checks now guard the pipeline: confirming that every graph was built from the intended reads, and testing apparent model failures against reference-to-reference differences.
+
+%=================================================================
+\section{Discussion}\label{sec:discussion}
+
+For unpolished accuracy, the pretrained model transfers: GNNome assembles DH5$\alpha$ with fewer errors than Raven from the same graph, without extensive misassemblies, at both read accuracies, in 19 of 21 simulated replicates and in both Run~1 subsamples in this dataset. The mechanism behind this advantage is read selection. The model's overlap-similarity input is, in effect, a measure of read accuracy, the trained network rewards it, and greedy decoding follows the best-scored edge, so the walk passes through cleaner reads. Neutralizing it reduces cleanest-read choice to approximately chance level, although a weaker residual preference remains (Section~\ref{sec:why}). The advantage grows with read accuracy and, in the one depth comparison, with depth (Table~\ref{tab:replicates}), consistent with more good reads being available to choose from.
+
+This reframes what the learned component contributes here. Repeats are the usual explanation for assembly errors~\cite{tderrors}, and our own earlier analysis assumed they were where learned edge scoring would fail. On this genome, repeats caused only a handful of false or mis-anchored overlaps, GNNome's walk used none of them in these runs, and the only repeat-caused error was Raven's; this is not evidence of general repeat resolution. GNNome's gain came instead from choosing among true overlaps, which is a read-quality decision. This mechanism is not described in the GNNome paper, which reports mixed accuracy without explaining it~\cite{gnnome}.
+
+Two practical consequences follow. First, in these experiments two rounds of minimap2-guided Racon~\cite{racon} polishing largely removed the unpolished difference and no significant difference was detected afterwards; this does not establish equivalence or general independence of polishing from draft read selection. GNNome's benefit here is a cleaner draft, which matters mainly when polishing is limited or skipped. Second, the model's ranking transferred to noisy reads while its probabilities collapsed. Ranking and calibration are distinct, so using GNNome scores as calibrated probabilities (e.g., a fixed acceptance threshold) would fail on such data without recalibration; this is a general risk for pretrained models applied out of distribution.
+
+GNNome's one systematic defect here is the shared overlap length for twin edges, a simplification in its parser rather than a fault of the learned model. The other Run~2 GNNome breakpoints trace to source-read errors. Exporting both directional lengths from Raven, or recomputing them in the parser, should remove its large indels; we predict this from the mechanism but have not run it. These conclusions are limited to this simulated dataset and one graph pipeline. Finally, the stale-graph case shows how easily a pipeline error can resemble a model failure: a strain difference produced misassemblies that even coincided with a real repeat.
+
+%=================================================================
+\section{Limitations and Future Work}\label{sec:limits}
+
+All reads are simulated, from one genome that assembles into a single contig, and every graph is Raven-generated rather than Hifiasm-derived, so genome and graph-generator shifts are not separated; real DH5$\alpha$ sequencing data is the next test. The available PBSIM3 build caps simulated identity at about 96\%, so the accurate regime rests on the Run~1 reads, whose PBSIM3 build and simulation command were not recovered. Spurious edges are rare (2 and 4), so the true-versus-spurious AUROC values are imprecise. The parser fix and the residual preference for cleaner reads are untested. We did not search GNNome's issue tracker for prior reports of the twin-edge simplification. Future work will test whether the read-selection advantage survives a smaller GNNome model and upstream read scrubbing~\cite{miniscrub}.
+
+%=================================================================
+\section{Conclusion}
+
+On the simulated DH5$\alpha$ dataset evaluated here, pretrained GNNome, never trained on bacteria, produced more accurate unpolished assemblies than Raven from the same Raven graph, and its walk used no spurious edge. The advantage is attributed to implicit read selection: its overlap-similarity input tracks read accuracy, the model rewards it, and the greedy walk follows it into cleaner reads, rather than explicit read filtering or repeat resolution. Its Run~1 large indels trace to one parser simplification, and after polishing no significant difference was detected. Real reads, further bacterial genomes and independent graphs are needed to establish how broadly this transfers.
+
+%=================================================================
+\appendix
+\section{QUAST Metrics Used}
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{7.6cm}}
+\toprule
+Metric & Meaning \\
+\midrule
+Genome fraction & Percentage of reference bases covered by aligned assembly sequence \\
+NGA50 & Block length such that aligned blocks of at least that length, after splitting contigs at misassemblies, cover half of the reference length \\
+Misassemblies & Breakpoints where flanking sequence aligns inconsistently with the reference (relocations, translocations, inversions) \\
+Local misassemblies & Smaller inconsistencies below the QUAST threshold for an extensive misassembly \\
+Mismatches, indels per 100 kbp & Base substitutions and insertions or deletions in aligned regions, per 100~kbp \\
+\bottomrule
+\end{tabular}
+\caption{Metrics as used in this paper. Exact thresholds follow the QUAST documentation~\cite{quast}.}
+\label{tab:metrics}
+\end{table}
+
+{\footnotesize\setlength{\itemsep}{0pt}\bibliographystyle{splncs04}
+\bibliography{refs}}
+\end{document}

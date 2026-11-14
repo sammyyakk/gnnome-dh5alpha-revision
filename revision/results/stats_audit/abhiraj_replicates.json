@@ -1,0 +1,173 @@
+{
+ "d_id": {
+  "direction_gnnome_better": "positive",
+  "replicate_n": 21,
+  "replicate_sign": {
+   "pos": 19,
+   "neg": 2,
+   "zero": 0,
+   "p": 0.00022125244140625
+  },
+  "replicate_wilcoxon_auto": {
+   "stat": 7.0,
+   "p": 1.811981201171875e-05,
+   "mode": "auto"
+  },
+  "replicate_wilcoxon_approx": {
+   "stat": 7.0,
+   "p": 0.00016246112358599135,
+   "mode": "approx"
+  },
+  "setting_n": 7,
+  "setting_means": {
+   "acc085_d30_L18k": 0.0721,
+   "acc085_d30_L9k": 0.0201,
+   "acc085_d60_L9k": 0.1928,
+   "acc090_d30_L9k": 0.6545,
+   "acc095_d30_L9k": 1.2459,
+   "acc099_d30_L9k": 1.4658,
+   "acc099_d60_L18k": 3.0641
+  },
+  "setting_sign": {
+   "pos": 7,
+   "neg": 0,
+   "zero": 0,
+   "p": 0.015625
+  },
+  "setting_wilcoxon_exact": {
+   "stat": 0.0,
+   "p": 0.015625,
+   "mode": "exact"
+  },
+  "mixed_model": {
+   "mean": 0.9593285714285679,
+   "ci95": [
+    0.1524573617954783,
+    1.7661997810616574
+   ],
+   "p": 0.01979046640713929,
+   "group_var": 1.1752991052115034,
+   "resid_var": 0.033131888057338986
+  }
+ },
+ "d_pol": {
+  "direction_gnnome_better": "negative",
+  "replicate_n": 21,
+  "replicate_sign": {
+   "pos": 12,
+   "neg": 8,
+   "zero": 1,
+   "p": 0.5034446716308594
+  },
+  "replicate_wilcoxon_auto": {
+   "stat": 56.0,
+   "p": 0.06735455698601128,
+   "mode": "auto"
+  },
+  "replicate_wilcoxon_approx": {
+   "stat": 56.0,
+   "p": 0.06735455698601128,
+   "mode": "approx"
+  },
+  "setting_n": 7,
+  "setting_means": {
+   "acc085_d30_L18k": 0.7667,
+   "acc085_d30_L9k": 1.0567,
+   "acc085_d60_L9k": 0.5367,
+   "acc090_d30_L9k": 0.28,
+   "acc095_d30_L9k": -0.03,
+   "acc099_d30_L9k": -0.3567,
+   "acc099_d60_L18k": -0.0
+  },
+  "setting_sign": {
+   "pos": 4,
+   "neg": 3,
+   "zero": 0,
+   "p": 1.0
+  },
+  "setting_wilcoxon_exact": {
+   "stat": 7.0,
+   "p": 0.296875,
+   "mode": "exact"
+  },
+  "mixed_model": {
+   "mean": 0.32190476190476197,
+   "ci95": [
+    -0.04520654083269904,
+    0.689016064642223
+   ],
+   "p": 0.08568511982858458,
+   "group_var": 0.11633837250549137,
+   "resid_var": 0.3877323038806181
+  }
+ },
+ "d_src": {
+  "direction_gnnome_better": "negative",
+  "replicate_n": 21,
+  "replicate_sign": {
+   "pos": 0,
+   "neg": 21,
+   "zero": 0,
+   "p": 9.5367431640625e-07
+  },
+  "replicate_wilcoxon_auto": {
+   "stat": 0.0,
+   "p": 9.5367431640625e-07,
+   "mode": "auto"
+  },
+  "replicate_wilcoxon_approx": {
+   "stat": 0.0,
+   "p": 5.956977907456359e-05,
+   "mode": "approx"
+  },
+  "setting_n": 7,
+  "setting_means": {
+   "acc085_d30_L18k": -1.0487,
+   "acc085_d30_L9k": -0.5312,
+   "acc085_d60_L9k": -0.9757,
+   "acc090_d30_L9k": -1.2676,
+   "acc095_d30_L9k": -1.6366,
+   "acc099_d30_L9k": -1.7679,
+   "acc099_d60_L18k": -3.2181
+  },
+  "setting_sign": {
+   "pos": 0,
+   "neg": 7,
+   "zero": 0,
+   "p": 0.015625
+  },
+  "setting_wilcoxon_exact": {
+   "stat": 0.0,
+   "p": 0.015625,
+   "mode": "exact"
+  },
+  "mixed_model": {
+   "mean": -1.4922690317125018,
+   "ci95": [
+    -2.1347410797996256,
+    -0.8497969836253783
+   ],
+   "p": 5.303587916151079e-06,
+   "group_var": 0.7396788989933738,
+   "resid_var": 0.03744381957329152
+  }
+ },
+ "slope": {
+  "setting_level_ols": {
+   "n": 4,
+   "slope": 0.13927915505463306,
+   "r": 0.998465631453705,
+   "p": 0.0015343685462949619
+  },
+  "replicate_level_ols_pseudoreplicated": {
+   "n": 12,
+   "slope": 0.13916646338398778,
+   "r": 0.9508666275774659,
+   "p": 2.0760272099623057e-06
+  },
+  "mixed_model": {
+   "slope": 0.13916643602214096,
+   "p": 2.69416719247149e-22
+  }
+ }
+}

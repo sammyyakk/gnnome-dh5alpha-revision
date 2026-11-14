@@ -16,3 +16,6 @@
 runs/
 __pycache__/
 *.pyc
+
+# revision: local work tree (envs, sources, reads, runs)
+work/
