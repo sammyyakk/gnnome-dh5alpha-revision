@@ -12,3 +12,7 @@
 [2026-11-14T21:58:57Z] racon x2 greedy_simlen_twin
 [2026-11-14T22:03:02Z] racon x2 raven
 [2026-11-14T22:12:55Z] DONE
+[2026-11-15T09:44:23Z] GUARD 1 graph<->reads
+[2026-11-15T09:44:25Z] assemble greedy_sim_twin (src=GNNome_twin scorer=sim)
+[2026-11-15T09:44:41Z] racon x2 greedy_sim_twin
+[2026-11-15T09:46:20Z] DONE
