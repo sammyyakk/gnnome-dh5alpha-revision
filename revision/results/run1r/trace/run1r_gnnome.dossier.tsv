@@ -1,0 +1,57 @@
+kind	cat	typ	len	ref	ctg	repeat_family	repeat_class	repeat_copies	element	homopolymer	lowcomplexity	depth	reads_mean_identity	origin	source_reads	source_identity	junction_dist	junction_src	junction_dst	junction_overlap	junction_prefix	junction_edge_class	junction_prob	junction_src_outdeg	junction_src_spurious_out	sources
+small	indel_gt5	ins	25	1431	153					False	False	6	0.99818	junction	[]		25	S/10191/ccs	S/2590/ccs	18990	178	true	0.02948	13	0	
+small	indel_gt5	del	10	8369	7114					False	False	33	0.99828	junction	[]		0	S/2590/ccs	S/13511/ccs	14392	6936	true	0.90714	13	0	
+small	indel_gt5	del	28	45412	44175					False	False	52	0.99708	junction	[]		1	S/14341/ccs	S/3063/ccs	17229	6723	true	0.93288	18	0	
+small	indel_gt5	del	12	59349	58106					False	False	63	0.99767	junction	[]		2	S/3063/ccs	S/11232/ccs	9300	13932	true	0.98087	21	0	
+small	indel_gt5	del	8	151154	149970					False	False	56	0.99714	junction	[]		0	S/12635/ccs	S/8547/ccs	15878	4666	true	0.94986	9	0	
+small	indel_gt5	ins	7	290298	289203					False	False	58	0.99693	junction	[]		7	S/4227/ccs	S/10629/ccs	10549	9755	true	0.89446	13	0	
+small	indel_gt5	del	6	384412	383357					False	False	62	0.99729	junction	[]		0	S/12374/ccs	S/11189/ccs	10981	8763	true	0.95647	13	0	
+small	indel_gt5	del	7	394611	393558					False	False	68	0.99779	junction	[]		0	S/11189/ccs	S/14286/ccs	12087	10201	true	0.97811	14	0	
+small	indel_gt5	ins	8	401380	400327					False	False	68	0.99745	junction	[]		9	S/14286/ccs	S/8577/ccs	14374	6778	true	0.97135	12	0	
+small	indel_gt5	del	6	657775	656851					False	False	71	0.99721	junction	[]		0	S/10861/ccs	S/13212/ccs	11674	6918	true	0.97799	12	0	
+small	indel_gt5	del	8	787946	787070					False	False	53	0.99721	junction	[]		0	S/12501/ccs	S/5088/ccs	13149	10403	true	0.97649	11	0	
+small	indel_gt5	del	6	797365	796492					False	False	52	0.99694	junction	[]		0	S/5088/ccs	S/5113/ccs	9506	9422	true	0.97938	10	0	
+small	indel_gt5	ins	10	806696	805829					False	False	60	0.99668	junction	[]		10	S/5113/ccs	S/12981/ccs	13501	9347	true	0.9752	15	0	
+small	indel_gt5	del	8	823484	822627					False	False	55	0.99803	junction	[]		0	S/3370/ccs	S/3973/ccs	10894	8098	true	0.97889	11	0	
+small	indel_gt5	del	6	977142	976349					False	False	64	0.99653	junction	[]		0	S/12638/ccs	S/6963/ccs	11281	10479	true	0.97918	12	0	
+small	indel_gt5	ins	10	1097035	1096298	F006	IS_transposase	4	IS_transposase:transposase	False	False	53	0.9971	junction	[]		11	S/13727/ccs	S/11087/ccs	13683	7517	true	0.97445	13	0	
+small	indel_gt5	del	10	1171714	1171022					False	False	64	0.99783	junction	[]		1	S/11381/ccs	S/7159/ccs	12854	8842	true	0.97703	12	0	
+small	indel_gt5	del	9	1232051	1231403				phage_related:phage portal protein	False	False	50	0.99743	junction	[]		0	S/2932/ccs	S/8535/ccs	9964	11156	true	0.97995	13	0	
+small	indel_gt5	ins	7	1371047	1370456					False	False	66	0.99665	junction	[]		7	S/4777/ccs	S/8160/ccs	12794	6742	true	0.97712	13	0	
+small	indel_gt5	del	8	1390342	1389764					False	False	47	0.99737	junction	[]		0	S/6802/ccs	S/12716/ccs	17697	8015	true	0.84958	9	0	
+small	indel_gt5	del	8	1406016	1405446					False	False	50	0.99763	junction	[]		0	S/13721/ccs	S/2708/ccs	15114	6518	true	0.96765	13	0	
+small	indel_gt5	ins	8	1419390	1418817					False	False	57	0.99734	junction	[]		8	S/2708/ccs	S/10942/ccs	11053	13379	true	0.97845	15	0	
+small	indel_gt5	ins	7	1450744	1450197				IS_transposase:transposase	False	False	45	0.99648	junction	[]		7	S/6171/ccs	S/1448/ccs	14939	4629	true	0.96825	13	0	
+small	indel_gt5	del	6	1527857	1527336					False	False	67	0.99759	junction	[]		0	S/13343/ccs	S/5660/ccs	13383	9353	true	0.9656	14	0	
+small	indel_gt5	ins	13	1543008	1542498					False	False	74	0.99703	junction	[]		13	S/281/ccs	S/307/ccs	17609	6775	true	0.90151	12	0	
+small	indel_gt5	ins	11	1575526	1575046					False	False	61	0.99721	junction	[]		13	S/12611/ccs	S/12053/ccs	16253	7635	true	0.96095	19	0	
+small	indel_gt5	del	10	1590640	1590181					False	False	58	0.99741	junction	[]		0	S/12053/ccs	S/2917/ccs	6094	15122	true	0.95573	18	0	
+small	indel_gt5	del	6	1611526	1611071					False	False	63	0.99735	junction	[]		0	S/1886/ccs	S/1366/ccs	15271	5529	true	0.96677	15	0	
+small	indel_gt5	ins	14	1632732	1632294					False	False	52	0.99757	junction	[]		14	S/7697/ccs	S/9543/ccs	10152	11208	true	0.97925	12	0	
+small	indel_gt5	ins	6	1707901	1707497					False	False	61	0.99652	junction	[]		6	S/6084/ccs	S/14849/ccs	17902	3666	true	0.89204	13	0	
+small	indel_gt5	ins	9	2210765	2210600					False	False	50	0.99783	junction	[]		9	S/10643/ccs	S/14852/ccs	12749	7827	true	0.97715	15	0	
+small	indel_gt5	ins	10	2350761	2350690					False	False	63	0.99752	junction	[]		10	S/2524/ccs	S/2050/ccs	14034	11198	true	0.97291	14	0	
+small	indel_gt5	del	8	2560680	2560699					False	False	58	0.99732	junction	[]		0	S/1674/ccs	S/13205/ccs	11988	8796	true	0.97824	11	0	
+small	indel_gt5	del	18	2649349	2649402					False	False	60	0.99729	junction	[]		2	S/315/ccs	S/1700/ccs	14301	8899	true	0.9717	14	0	
+small	indel_gt5	del	12	2763246	2763331					False	False	55	0.99713	junction	[]		0	S/14541/ccs	S/8113/ccs	13806	9314	true	0.97391	16	0	
+small	indel_gt5	ins	6	2781842	2781928					False	False	75	0.99701	junction	[]		6	S/498/ccs	S/6377/ccs	9984	10608	true	0.98046	18	0	
+small	indel_gt5	del	6	2795163	2795255					False	False	62	0.99783	junction	[]		1	S/6377/ccs	S/7961/ccs	7526	13322	true	0.97975	11	0	
+small	indel_gt5	ins	9	2850831	2850946					False	False	49	0.99728	junction	[]		9	S/9212/ccs	S/13073/ccs	12342	10794	true	0.97776	13	0	
+small	indel_gt5	ins	6	3039360	3039583					False	False	58	0.99684	junction	[]		6	S/2449/ccs	S/14816/ccs	9877	14395	true	0.98012	17	0	
+small	indel_gt5	ins	9	3070329	3070566					False	False	60	0.99737	junction	[]		9	S/13206/ccs	S/9210/ccs	12285	9635	true	0.97785	14	0	
+small	indel_gt5	del	8	3095265	3095519					False	False	62	0.99778	junction	[]		2	S/8133/ccs	S/14680/ccs	10531	10813	true	0.97982	16	0	
+small	indel_gt5	del	6	3262583	3262899					False	False	65	0.99759	junction	[]		0	S/4784/ccs	S/6570/ccs	15257	7031	true	0.96413	12	0	
+small	indel_gt5	del	7	3289708	3290037					False	False	68	0.99737	junction	[]		1	S/14551/ccs	S/4434/ccs	10547	13901	true	0.97976	14	0	
+small	indel_gt5	del	8	3373766	3374126					False	False	57	0.99691	junction	[]		2	S/13245/ccs	S/1038/ccs	14716	5204	true	0.93906	10	0	
+small	indel_gt5	ins	7	3380590	3380943					False	False	65	0.99731	junction	[]		7	S/1038/ccs	S/7791/ccs	12826	6822	true	0.97671	9	0	
+small	indel_gt5	ins	7	3744343	3744855					False	False	65	0.99666	junction	[]		7	S/7646/ccs	S/3930/ccs	10395	9493	true	0.97962	14	0	
+small	indel_gt5	ins	7	3801957	3802503					False	False	68	0.99686	junction	[]		8	S/10840/ccs	S/7596/ccs	10181	9355	true	0.98039	14	0	
+small	indel_gt5	del	10	3933282	3933912					False	False	67	0.99727	junction	[]		1	S/4993/ccs	S/7621/ccs	16743	7801	true	0.93018	9	0	
+small	indel_gt5	del	6	4053293	4053982					False	False	49	0.99747	junction	[]		0	S/440/ccs	S/635/ccs	10985	10951	true	0.97733	14	0	
+small	indel_gt5	del	10	4062923	4063613					False	False	40	0.99798	junction	[]		0	S/635/ccs	S/1965/ccs	9985	9631	true	0.97814	12	0	
+small	indel_gt5	ins	11	4168381	4169114					False	False	64	0.99754	junction	[]		12	S/443/ccs	S/2434/ccs	10080	12752	true	0.98043	16	0	
+small	indel_gt5	ins	7	4248694	4249469					False	False	61	0.99785	junction	[]		7	S/2763/ccs	S/12464/ccs	11224	9400	true	0.97923	19	0	
+small	indel_gt5	del	8	4393827	4394671					False	False	57	0.99768	junction	[]		0	S/3545/ccs	S/6106/ccs	8250	14022	true	0.97982	16	0	
+small	indel_gt5	del	6	4451438	4452305					False	False	65	0.99759	junction	[]		0	S/11845/ccs	S/3455/ccs	9469	12531	true	0.97852	8	0	
+small	indel_gt5	del	6	4505971	4506862					False	False	53	0.99701	junction	[]		2	S/11773/ccs	S/2463/ccs	7930	14646	true	0.98085	19	0	
+small	indel_gt5	del	26	4557320	4558234					False	False	67	0.99757	junction	[]		0	S/5471/ccs	S/11051/ccs	19985	591	true	0.46495	3	0	

@@ -1,0 +1,170 @@
+{
+ "label": "run1r_greedy_sim_twin",
+ "assembly_len": 4583503,
+ "events": {
+  "indel_le5": 6339,
+  "mismatch": 70
+ },
+ "gnnome_walk_rebuild_matches_assembly": false,
+ "gnnome_junctions": 385,
+ "enrichment": {
+  "indel_le5": {
+   "repeat": {
+    "n": 6339,
+    "in_track": 202,
+    "frac": 0.03186622495661776,
+    "genome_frac": 0.03170299044186963,
+    "fold": 1.0051488680554421,
+    "p_perm_ge": 0.48151848151848153
+   },
+   "homopolymer": {
+    "n": 6339,
+    "in_track": 241,
+    "frac": 0.038018614923489506,
+    "genome_frac": 0.0024823082630670797,
+    "fold": 15.31583143364903,
+    "p_perm_ge": 0.000999000999000999
+   },
+   "lowcomplexity": {
+    "n": 6339,
+    "in_track": 255,
+    "frac": 0.040227165168007575,
+    "genome_frac": 0.003282109818033147,
+    "fold": 12.256495790294519,
+    "p_perm_ge": 0.000999000999000999
+   },
+   "repeat_rRNA": {
+    "n": 6339,
+    "in_track": 51,
+    "frac": 0.008045433033601515,
+    "genome_frac": 0.008473838569677311,
+    "fold": 0.949443745882911,
+    "p_perm_ge": 0.5724275724275725
+   },
+   "repeat_IS_transposase": {
+    "n": 6339,
+    "in_track": 77,
+    "frac": 0.012147026344849345,
+    "genome_frac": 0.012284786077082457,
+    "fold": 0.9887861513119788,
+    "p_perm_ge": 0.5334665334665335
+   },
+   "repeat_Rhs": {
+    "n": 6339,
+    "in_track": 20,
+    "frac": 0.003155071777882947,
+    "genome_frac": 0.0034983136753630358,
+    "fold": 0.9018836132684789,
+    "p_perm_ge": 0.6123876123876124
+   },
+   "repeat_phage_related": {
+    "n": 6339,
+    "in_track": 14,
+    "frac": 0.0022085502445180626,
+    "genome_frac": 0.0013683457045136863,
+    "fold": 1.6140294351294706,
+    "p_perm_ge": 0.0979020979020979
+   },
+   "repeat_unannotated": {
+    "n": 6339,
+    "in_track": 40,
+    "frac": 0.006310143555765894,
+    "genome_frac": 0.005923243921802708,
+    "fold": 1.0653188757834298,
+    "p_perm_ge": 0.34165834165834164
+   }
+  },
+  "mismatch": {
+   "repeat": {
+    "n": 70,
+    "in_track": 1,
+    "frac": 0.014285714285714285,
+    "genome_frac": 0.03170299044186963,
+    "fold": 0.45061093879798075,
+    "p_perm_ge": 0.8431568431568431
+   },
+   "homopolymer": {
+    "n": 70,
+    "in_track": 1,
+    "frac": 0.014285714285714285,
+    "genome_frac": 0.0024823082630670797,
+    "fold": 5.755012178891595,
+    "p_perm_ge": 0.14485514485514486
+   },
+   "lowcomplexity": {
+    "n": 70,
+    "in_track": 1,
+    "frac": 0.014285714285714285,
+    "genome_frac": 0.003282109818033147,
+    "fold": 4.352600941998708,
+    "p_perm_ge": 0.1798201798201798
+   },
+   "repeat_rRNA": {
+    "n": 70,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.008473838569677311,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "repeat_IS_transposase": {
+    "n": 70,
+    "in_track": 1,
+    "frac": 0.014285714285714285,
+    "genome_frac": 0.012284786077082457,
+    "fold": 1.1628785553184848,
+    "p_perm_ge": 0.4875124875124875
+   },
+   "repeat_Rhs": {
+    "n": 70,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.0034983136753630358,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "repeat_phage_related": {
+    "n": 70,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.0013683457045136863,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "repeat_unannotated": {
+    "n": 70,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.005923243921802708,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   }
+  }
+ },
+ "read_origin": {
+  "indel_le5": {
+   "inherited": 2964,
+   "junction": 9
+  },
+  "mismatch": {
+   "inherited": 27
+  }
+ },
+ "inherited_source_read_identity_mean": 0.9974538047475761,
+ "all_reads_identity_mean": 0.9972343527497118,
+ "junction_distance": {
+  "indel_le5": {
+   "n": 6339,
+   "within_50bp": 51,
+   "within_500bp": 501,
+   "expected_within_50bp_if_random": 53.77808523306301
+  },
+  "mismatch": {
+   "n": 70,
+   "within_50bp": 1,
+   "within_500bp": 3,
+   "expected_within_50bp_if_random": 0.5938580164559727
+  }
+ },
+ "junction_origin_events_within_50bp_of_walk_junction": "9/9"
+}

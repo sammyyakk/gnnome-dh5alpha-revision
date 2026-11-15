@@ -1,0 +1,12 @@
+{
+ "spearman_sim_vs_pair_read_error_trueedges": -0.8754240881647435,
+ "spearman_logit_vs_sim_trueedges": 0.6307234491648354,
+ "spearman_logit_vs_overlap_len_trueedges": 0.43828979197989276,
+ "spearman_logit_vs_dst_read_error_trueedges": -0.31192146572109963,
+ "walk_decisions_with_true_alternatives": 427,
+ "chosen_next_read_cleaner_than_alternatives_frac": 0.8899297423887588,
+ "chosen_next_read_error_minus_alt_median": -0.001159285714285696,
+ "chosen_higher_similarity_frac": 0.9110070257611241,
+ "chosen_longer_overlap_frac": 0.5292740046838408,
+ "wilcoxon_p_err": 3.6418532953084682e-56
+}

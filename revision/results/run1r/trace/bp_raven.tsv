@@ -1,0 +1,4 @@
+assembly	source	type	ref_left	ref_right	contig_left	contig_right	ref_jump	contig_gap	discrepancy	identity
+run1r_raven	minimap2_nolj	local	2758743	2758803	2759007	2758653	60	-354	414	0.9971/0.9971
+run1r_raven	nucmer	local	2758743	2758803	2759007	2758653	60	-354	414	0.9971/0.9972
+run1r_raven	quast	local_misassembly	2758743	2759158	2759007	2759008	415	1	414	99.71

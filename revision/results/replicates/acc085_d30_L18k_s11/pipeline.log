@@ -15,3 +15,4 @@
 [2026-11-15T09:04:14Z] GUARD 1 graph<->reads
 [2026-11-15T09:04:16Z] assemble greedy_sim_twin (src=GNNome_twin scorer=sim)
 [2026-11-15T09:06:10Z] racon x2 greedy_sim_twin
+[2026-11-15T09:08:14Z] DONE

@@ -1,0 +1,171 @@
+{
+ "label": "run1r_greedy_simlen_twin",
+ "assembly_len": 4583880,
+ "events": {
+  "indel_le5": 8206,
+  "mismatch": 121
+ },
+ "gnnome_walk_rebuild_matches_assembly": false,
+ "gnnome_junctions": 2333,
+ "enrichment": {
+  "indel_le5": {
+   "repeat": {
+    "n": 8206,
+    "in_track": 283,
+    "frac": 0.034486960760419204,
+    "genome_frac": 0.03170299044186963,
+    "fold": 1.0878141235179135,
+    "p_perm_ge": 0.16783216783216784
+   },
+   "homopolymer": {
+    "n": 8206,
+    "in_track": 241,
+    "frac": 0.029368754569826957,
+    "genome_frac": 0.0024823082630670797,
+    "fold": 11.831227815976263,
+    "p_perm_ge": 0.000999000999000999
+   },
+   "lowcomplexity": {
+    "n": 8206,
+    "in_track": 283,
+    "frac": 0.034486960760419204,
+    "genome_frac": 0.003282109818033147,
+    "fold": 10.50755845247312,
+    "p_perm_ge": 0.000999000999000999
+   },
+   "repeat_rRNA": {
+    "n": 8206,
+    "in_track": 86,
+    "frac": 0.010480136485498415,
+    "genome_frac": 0.008473838569677311,
+    "fold": 1.236763764063245,
+    "p_perm_ge": 0.0939060939060939
+   },
+   "repeat_IS_transposase": {
+    "n": 8206,
+    "in_track": 104,
+    "frac": 0.012673653424323665,
+    "genome_frac": 0.012284786077082457,
+    "fold": 1.0316543849279272,
+    "p_perm_ge": 0.41858141858141856
+   },
+   "repeat_Rhs": {
+    "n": 8206,
+    "in_track": 37,
+    "frac": 0.004508895929807458,
+    "genome_frac": 0.0034983136753630358,
+    "fold": 1.288876969941682,
+    "p_perm_ge": 0.13886113886113885
+   },
+   "repeat_phage_related": {
+    "n": 8206,
+    "in_track": 15,
+    "frac": 0.0018279307823543748,
+    "genome_frac": 0.0013683457045136863,
+    "fold": 1.3358691274614891,
+    "p_perm_ge": 0.19480519480519481
+   },
+   "repeat_unannotated": {
+    "n": 8206,
+    "in_track": 41,
+    "frac": 0.004996344138435292,
+    "genome_frac": 0.005923243921802708,
+    "fold": 0.84351483821971,
+    "p_perm_ge": 0.8291708291708292
+   }
+  },
+  "mismatch": {
+   "repeat": {
+    "n": 121,
+    "in_track": 5,
+    "frac": 0.04132231404958678,
+    "genome_frac": 0.03170299044186963,
+    "fold": 1.3034200709032502,
+    "p_perm_ge": 0.32867132867132864
+   },
+   "homopolymer": {
+    "n": 121,
+    "in_track": 4,
+    "frac": 0.03305785123966942,
+    "genome_frac": 0.0024823082630670797,
+    "fold": 13.31738355445989,
+    "p_perm_ge": 0.004995004995004995
+   },
+   "lowcomplexity": {
+    "n": 121,
+    "in_track": 2,
+    "frac": 0.01652892561983471,
+    "genome_frac": 0.003282109818033147,
+    "fold": 5.036067205618341,
+    "p_perm_ge": 0.11788211788211789
+   },
+   "repeat_rRNA": {
+    "n": 121,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.008473838569677311,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "repeat_IS_transposase": {
+    "n": 121,
+    "in_track": 2,
+    "frac": 0.01652892561983471,
+    "genome_frac": 0.012284786077082457,
+    "fold": 1.3454793202032058,
+    "p_perm_ge": 0.3926073926073926
+   },
+   "repeat_Rhs": {
+    "n": 121,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.0034983136753630358,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "repeat_phage_related": {
+    "n": 121,
+    "in_track": 0,
+    "frac": 0.0,
+    "genome_frac": 0.0013683457045136863,
+    "fold": 0.0,
+    "p_perm_ge": 1.0
+   },
+   "repeat_unannotated": {
+    "n": 121,
+    "in_track": 3,
+    "frac": 0.024793388429752067,
+    "genome_frac": 0.005923243921802708,
+    "fold": 4.185778731564769,
+    "p_perm_ge": 0.06493506493506493
+   }
+  }
+ },
+ "read_origin": {
+  "indel_le5": {
+   "inherited": 2903,
+   "junction": 50
+  },
+  "mismatch": {
+   "inherited": 39,
+   "junction": 8
+  }
+ },
+ "inherited_source_read_identity_mean": 0.9970270360299115,
+ "all_reads_identity_mean": 0.9972343527497118,
+ "junction_distance": {
+  "indel_le5": {
+   "n": 8206,
+   "within_50bp": 445,
+   "within_500bp": 3552,
+   "expected_within_50bp_if_random": 421.8270107419915
+  },
+  "mismatch": {
+   "n": 121,
+   "within_50bp": 7,
+   "within_500bp": 48,
+   "expected_within_50bp_if_random": 6.2199693272947805
+  }
+ },
+ "junction_origin_events_within_50bp_of_walk_junction": "12/58"
+}

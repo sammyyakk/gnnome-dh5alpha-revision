@@ -1,0 +1,18 @@
+kind	cat	typ	len	ref	ctg	repeat_family	repeat_class	repeat_copies	element	homopolymer	lowcomplexity	depth	reads_mean_identity	origin	source_reads	source_identity	junction_dist	junction_src	junction_dst	junction_overlap	junction_prefix	junction_edge_class	junction_prob	junction_src_outdeg	junction_src_spurious_out	sources
+small	indel_gt5	ins	25	1431	153					False	False	6	0.99818	junction	[]		25	S/10191/ccs	S/2590/ccs	18990	178	true	0.99294	13	0	
+small	indel_gt5	ins	34	94332	93133					False	False	56	0.99688	junction	[]		34	S/14681/ccs	S/12623/ccs	19776	3616	true	0.99282	16	0	
+small	indel_gt5	ins	6	314527	313477					False	False	63	0.99751	junction	[]		6	S/8653/ccs	S/9417/ccs	20383	369	true	0.99814	11	0	
+small	indel_gt5	del	6	623549	622595					False	False	52	0.99751	junction	[]		0	S/7259/ccs	S/13973/ccs	17568	2928	true	0.99784	12	0	
+small	indel_gt5	ins	6	799119	798246					False	False	60	0.99684	junction	[]		6	S/5088/ccs	S/12238/ccs	7745	11183	true	0.99768	10	0	
+small	indel_gt5	del	6	977142	976360					False	False	64	0.99653	junction	[]		0	S/12638/ccs	S/6963/ccs	11281	10479	true	0.99734	12	0	
+small	indel_gt5	ins	6	1287925	1287252					False	False	60	0.99631	junction	[]		6	S/3877/ccs	S/5386/ccs	15068	6228	true	0.99735	19	0	
+small	indel_gt5	ins	7	1352126	1351491					False	False	66	0.99711	junction	[]		7	S/6201/ccs	S/13627/ccs	17134	4306	true	0.9972	13	0	
+small	indel_gt5	ins	6	1380435	1379802	F013	phage_related	3		False	False	54	0.99715	junction	[]		9	S/8160/ccs	S/1797/ccs	12410	9398	true	0.99742	12	0	
+small	indel_gt5	ins	6	1601228	1600691					False	False	58	0.99746	junction	[]		6	S/11801/ccs	S/6532/ccs	11963	6021	true	0.99716	14	0	
+small	indel_gt5	ins	6	2336543	2336346					False	False	75	0.99658	junction	[]		6	S/14805/ccs	S/8727/ccs	4876	15156	true	0.99426	15	0	
+small	indel_gt5	del	6	2921353	2921373					False	False	71	0.99771	junction	[]		0	S/1233/ccs	S/4720/ccs	11231	9153	true	0.99795	13	0	
+small	indel_gt5	del	7	3162605	3162711					False	False	52	0.99651	junction	[]		0	S/12787/ccs	S/2125/ccs	19336	824	true	0.99793	11	0	
+small	indel_gt5	ins	7	3875482	3875887					False	False	71	0.99639	junction	[]		7	S/13208/ccs	S/12092/ccs	12389	8075	true	0.99726	8	0	
+small	indel_gt5	del	10	4058673	4059175					False	False	45	0.99786	junction	[]		0	S/635/ccs	S/9852/ccs	14238	5378	true	0.99747	12	0	
+small	indel_gt5	del	11	4448784	4449422	F011	IS_transposase	3	phage_related:integrase	False	False	63	0.99749	junction	[]		0	S/3669/ccs	S/10056/ccs	19822	1874	true	0.99728	12	0	
+small	indel_gt5	del	11	4550572	4551263					False	False	60	0.99727	junction	[]		1	S/13295/ccs	S/12299/ccs	17242	5766	true	0.99791	13	0	
