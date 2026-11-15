@@ -1,0 +1,1 @@
+1-to-1 blocks: 31; reverse-strand 1-to-1 blocks: 3 (lengths 854, 1204, 770 bp); longest reverse 1-to-1 block: 1204 bp

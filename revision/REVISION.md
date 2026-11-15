@@ -83,7 +83,8 @@ What was done (`runs/stale_k12/`):
 - Rebuilt the stale graph: Raven fork on GNNome's `example/ecoli.fasta.gz` (K-12 HiFi; SHA `62176d9d…`) → `graph_1.gfa` with S = 2,561, L = 27,451.
 - Ran GNNome with the DH5α reads but this graph (the original mistake). QUAST vs CP017100.1, `--min-identity 80`: **23 misassemblies, 5 local**, GF 98.806, 13.69 mismatches and 72.66 indels per 100 kbp (K-12 HiFi read accuracy — the sequence is copied from K-12 reads in the GFA, not from the DH5α reads).
 - Scored the K-12 reference NC_000913.3 itself against CP017100.1 with the same QUAST settings: **the same 23 misassemblies (23 relocations, 0 inversions), 5 local**.
-- nucmer 1-to-1 (`delta-filter -1`) K-12 vs NEB 5-alpha: **no inverted block**.
+- nucmer (MUMmer 3.23, `--maxmatch`, then `delta-filter -1`) K-12 vs NEB 5-alpha: 31 one-to-one blocks, of which only **3 are reverse-strand (854, 1,204 and 770 bp), each inside a repeat copy**; no inverted segment of any appreciable size (`results/stale_k12/nucmer/inversion_check.{tsv,png,pdf}`, script `scripts/figures/inversion_check.py`).
+- Our rebuilt K-12 graph has SHA-256 `62176d9d91749b6f…642dcdfc`, **byte-identical** to the stale graph recorded in the original evidence report (§3.3), so the rerun reproduces the original mistake exactly.
 
 What the "210 kb inversion" actually was: a K-12-only IS copy at K-12 566,771–568,040 (1,270 bp) that aligns in reverse orientation to a DH5α IS copy at 297,701–298,970 (99.92% identity, repeat family F006). A dot plot drawn from all (not 1-to-1) alignments connects these two copies and looks like a ~210 kb inverted segment; it is not one. The real differences are strain insertions/deletions at IS elements, the K-12 565,828–577,188 region (present only in K-12), and a ~12.8 kb relocation (DH5α 1,235,508–1,248,271 ↔ K-12 359,483–372,339). The rrnD–rrnE inversion (Hill & Harnish 1981) is not involved.
 
@@ -93,7 +94,7 @@ old (line 356):
 ```
 new (full paragraph):
 ```latex
-An earlier version of this study reported 23 misassemblies by GNNome on DH5$\alpha$. That run is excluded: the Raven build used then did not write the graph file GNNome reads, so GNNome loaded a leftover \emph{E.\ coli} K-12 graph with the same file name. We rebuilt that graph from the K-12 example reads (2{,}561 segments, 27{,}451 links) and reran GNNome on it with the DH5$\alpha$ reads: QUAST again reports 23 misassemblies (5 local) against CP017100.1, with K-12 HiFi-level base accuracy (13.7 mismatches and 72.7 indels per 100~kbp), because the contig is copied from K-12 reads. Scoring the K-12 reference (NC\_000913.3) itself against CP017100.1 with identical settings gives the same 23 misassemblies (all relocations, no inversions) and 5 local misassemblies. They mark real differences between K-12 MG1655 and NEB 5-alpha: insertion-sequence insertions and deletions, an 11.4~kb region present only in K-12, and a 12.8~kb relocation. A 1-to-1 nucmer alignment contains no inverted block; an apparent inversion in an all-alignments dot plot is a K-12-only IS copy aligning in reverse to a DH5$\alpha$ IS copy (99.92\% identity over 1{,}270~bp). Two checks now guard the pipeline: every GFA must contain segments that are exact substrings of the intended reads, and every GNNome input graph must match that GFA node for node and edge for edge.
+An earlier version of this study reported 23 misassemblies by GNNome on DH5$\alpha$. That run is excluded: the Raven build used then did not write the graph file GNNome reads, so GNNome loaded a leftover \emph{E.\ coli} K-12 graph with the same file name. We rebuilt that graph from the K-12 example reads (2{,}561 segments, 27{,}451 links) and reran GNNome on it with the DH5$\alpha$ reads: QUAST again reports 23 misassemblies (5 local) against CP017100.1, with K-12 HiFi-level base accuracy (13.7 mismatches and 72.7 indels per 100~kbp), because the contig is copied from K-12 reads. Scoring the K-12 reference (NC\_000913.3) itself against CP017100.1 with identical settings gives the same 23 misassemblies (all relocations, no inversions) and 5 local misassemblies. They mark real differences between K-12 MG1655 and NEB 5-alpha: insertion-sequence insertions and deletions, an 11.4~kb region present only in K-12, and a 12.8~kb relocation. A 1-to-1 nucmer alignment contains no inverted segment (its only reverse-strand blocks are three repeat copies of 770--1{,}204~bp); an apparent inversion in an all-alignments dot plot is a K-12-only IS copy aligning in reverse to a DH5$\alpha$ IS copy (99.92\% identity over 1{,}270~bp). Two checks now guard the pipeline: every GFA must contain segments that are exact substrings of the intended reads, and every GNNome input graph must match that GFA node for node and edge for edge.
 ```
 Fig. 4a caption (line 350): replace "The excluded old Run~2 GNNome assembly shows the breakpoint pattern of the K-12 reference itself." with "The excluded stale-graph GNNome assembly and the K-12 reference share the same 23 breakpoints; none is an inversion."
 
@@ -348,3 +349,39 @@ revision/
   scripts/analysis/                truth, collect, stats, breakpoint scripts
   results/                         run2, run1r, real, stale_k12, replicates, stats_audit (JSON/TSV + sha256)
 ```
+
+---
+
+## 11. Answers to the co-author checklist
+
+**1. Run 1 provenance.** Cannot be recovered. The original evidence report (`docs/run1_run2_evidence_report.md`,
+`docs/GNNome_DH5alpha_results_update.md` in the original repo) records that Run 1 was simulated with a different PBSIM3
+build from the one on disk (5,224 reverse-strand MAF start shifts absent from Run 2; identity 99.84% vs the on-disk
+build's ~96% single-pass cap) and that its command and seed were never logged; the Raven and GNNome commands were
+reconstructed. The Run 1 reads (`CP017100_sim.fastq`, SHA `5d3b823e…`, 14,884 reads) and graph (`b12099…0270`) exist
+only on the original machine. The 44%/41% headline therefore cannot be regenerated. Replacement: **Run 1R**, simulated
+from a logged command with the current PBSIM3 (two bug fixes, `patches/pbsim3_buffers.diff`), multi-pass + `ccs`; exact
+commands in `results/run1r/command.log` (simulation) and `results/run1r/pipeline.log` (Raven: `raven -t 12 -p0 reads`;
+GNNome: `create_inference_graphs.py` + `inference.py` via `scripts/pipeline/gnnome_run.sh`, model `weights.pt` SHA
+`240076f0…40ff`). Run 1R results replace Run 1 in the abstract (§3.11).
+
+**2. Replicates: 21 or 27?** Both, deliberately. The manuscript design is **21 = 7 settings × 3 seeds (11, 22, 33)**.
+The revision reran those 21 from scratch and added **6 = 2 settings × 3 seeds** that separate depth from length
+(99% target, 60×, 9 kb and 99% target, 30×, 18.5 kb), giving 27 = 9 × 3. All 27 are complete and committed under
+`results/replicates/<setting>_s<seed>/` (QUAST for every variant unpolished and Racon×2, guards, hashes, `trace/collect.json`).
+Statistics are reported for the original 21/7 (audit of the manuscript) and for 27/9 (revised analysis), always at the
+setting level, with the mixed model on all replicates.
+
+**3. Inversion check.** Committed: `results/stale_k12/nucmer/{all.coords,1to1.coords,inversion_check.tsv,inversion_check.summary.txt,inversion_check.png,inversion_check.pdf}`;
+plot source `scripts/figures/inversion_check.py`. Result: 3 reverse-strand 1-to-1 blocks (770–1,204 bp, repeat copies);
+the all-alignments panel shows the repeat-copy matches that were mistaken for an inversion.
+
+**4. GNNome commit.** `ac827c2b2cca3086654183777eec6ae143e90a97` (upstream `lbcb-sci/GNNome` HEAD). The originally
+recorded `418c7d30e9bd2e4dcf521deebf42a5ba07836c9f` is not fetchable from upstream ("not our ref") and is in no
+upstream branch. With `ac827c2` the Run 2 GNNome contig reproduces byte for byte (`fa049876…`).
+
+**5. Stale graph in baselines / NOTES.md.** No baseline used the stale graph: 29/29 graphs pass GUARD 1 (200/200
+segments from that run's own reads), 168/168 GNNome/greedy runs pass GUARD 2, no run shares a graph hash and none equals
+the stale `62176d9d…`. `development-team2/NOTES.md` is not in any repository we can reach (original repo, sammyyakk/genome-sequencing
+branches main/team1/team2, all forks), so it cannot be edited from here; the correction text to paste is in
+`notes/NOTES_stale_graph_correction.md`.

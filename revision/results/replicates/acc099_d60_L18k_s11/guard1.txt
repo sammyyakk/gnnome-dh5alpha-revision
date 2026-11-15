@@ -1,0 +1,2 @@
+raven/graph_1.gfa: 2784 segments, testing 200 random (seed 42)
+  vs /home/sammyyakk/projects/gnnome-revision/work/runs/reps/acc099_d60_L18k_s11/sim/sim_0001.fq.gz: same read name 200/200, identical sequence 200/200

@@ -1,0 +1,55 @@
+Assembly	raven
+# contigs (>= 0 bp)	1
+# contigs (>= 1000 bp)	1
+# contigs (>= 5000 bp)	1
+# contigs (>= 10000 bp)	1
+# contigs (>= 25000 bp)	1
+# contigs (>= 50000 bp)	1
+Total length (>= 0 bp)	4609758
+Total length (>= 1000 bp)	4609758
+Total length (>= 5000 bp)	4609758
+Total length (>= 10000 bp)	4609758
+Total length (>= 25000 bp)	4609758
+Total length (>= 50000 bp)	4609758
+# contigs	1
+Largest contig	4609758
+Total length	4609758
+Reference length	4583637
+GC (%)	50.76
+Reference GC (%)	50.77
+N50	4609758
+NG50	4609758
+N90	4609758
+NG90	4609758
+auN	4609758.0
+auNG	4636027.9
+L50	1
+LG50	1
+L90	1
+LG90	1
+# misassemblies	0
+# misassembled contigs	0
+Misassembled contigs length	0
+# local misassemblies	2
+# scaffold gap ext. mis.	0
+# scaffold gap loc. mis.	0
+# unaligned mis. contigs	0
+# unaligned contigs	0 + 1 part
+Unaligned length	666
+Genome fraction (%)	99.922
+Duplication ratio	1.006
+# N's per 100 kbp	0.00
+# mismatches per 100 kbp	564.34
+# indels per 100 kbp	2766.25
+Largest alignment	4609092
+Total aligned length	4609092
+NA50	4609092
+NGA50	4609092
+NA90	4609092
+NGA90	4609092
+auNA	4608426.1
+auNGA	4634688.4
+LA50	1
+LGA50	1
+LA90	1
+LGA90	1

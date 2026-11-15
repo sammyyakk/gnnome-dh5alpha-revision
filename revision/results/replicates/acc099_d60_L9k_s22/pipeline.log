@@ -1,0 +1,16 @@
+[2026-11-15T01:40:00Z] raven -p0
+[2026-11-15T01:40:34Z] GUARD 1 graph<->reads
+[2026-11-15T01:40:36Z] assemble gnnome (src=GNNome scorer=model)
+[2026-11-15T01:40:55Z] assemble gnnome_twin (src=GNNome_twin scorer=model)
+[2026-11-15T01:41:15Z] assemble greedy_sim (src=GNNome scorer=sim)
+[2026-11-15T01:41:34Z] assemble greedy_sim_twin (src=GNNome_twin scorer=sim)
+[2026-11-15T01:41:54Z] assemble greedy_simlen (src=GNNome scorer=simlen)
+[2026-11-15T01:42:14Z] assemble greedy_simlen_twin (src=GNNome_twin scorer=simlen)
+[2026-11-15T01:42:38Z] racon x2 gnnome
+[2026-11-15T01:46:20Z] racon x2 gnnome_twin
+[2026-11-15T01:50:07Z] racon x2 greedy_sim
+[2026-11-15T01:53:55Z] racon x2 greedy_simlen
+[2026-11-15T01:57:49Z] racon x2 greedy_simlen_twin
+[2026-11-15T02:01:40Z] racon x2 greedy_sim_twin
+[2026-11-15T02:05:28Z] racon x2 raven
+[2026-11-15T02:10:56Z] DONE

@@ -1,0 +1,55 @@
+Assembly	round2
+# contigs (>= 0 bp)	1
+# contigs (>= 1000 bp)	1
+# contigs (>= 5000 bp)	1
+# contigs (>= 10000 bp)	1
+# contigs (>= 25000 bp)	1
+# contigs (>= 50000 bp)	1
+Total length (>= 0 bp)	4575329
+Total length (>= 1000 bp)	4575329
+Total length (>= 5000 bp)	4575329
+Total length (>= 10000 bp)	4575329
+Total length (>= 25000 bp)	4575329
+Total length (>= 50000 bp)	4575329
+# contigs	1
+Largest contig	4575329
+Total length	4575329
+Reference length	4583637
+GC (%)	50.77
+Reference GC (%)	50.77
+N50	4575329
+NG50	4575329
+N90	4575329
+NG90	4575329
+auN	4575329.0
+auNG	4567036.1
+L50	1
+LG50	1
+L90	1
+LG90	1
+# misassemblies	0
+# misassembled contigs	0
+Misassembled contigs length	0
+# local misassemblies	0
+# scaffold gap ext. mis.	0
+# scaffold gap loc. mis.	0
+# unaligned mis. contigs	0
+# unaligned contigs	0 + 0 part
+Unaligned length	0
+Genome fraction (%)	99.794
+Duplication ratio	1.000
+# N's per 100 kbp	0.00
+# mismatches per 100 kbp	1.11
+# indels per 100 kbp	32.39
+Largest alignment	4575320
+Total aligned length	4575320
+NA50	4575320
+NGA50	4575320
+NA90	4575320
+NGA90	4575320
+auNA	4575311.0
+auNGA	4567018.1
+LA50	1
+LGA50	1
+LA90	1
+LGA90	1

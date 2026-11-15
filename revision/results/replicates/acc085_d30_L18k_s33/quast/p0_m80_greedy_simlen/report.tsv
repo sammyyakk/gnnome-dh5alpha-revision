@@ -1,0 +1,55 @@
+Assembly	greedy_simlen
+# contigs (>= 0 bp)	1
+# contigs (>= 1000 bp)	1
+# contigs (>= 5000 bp)	1
+# contigs (>= 10000 bp)	1
+# contigs (>= 25000 bp)	1
+# contigs (>= 50000 bp)	1
+Total length (>= 0 bp)	4669779
+Total length (>= 1000 bp)	4669779
+Total length (>= 5000 bp)	4669779
+Total length (>= 10000 bp)	4669779
+Total length (>= 25000 bp)	4669779
+Total length (>= 50000 bp)	4669779
+# contigs	1
+Largest contig	4669779
+Total length	4669779
+Reference length	4583637
+GC (%)	50.74
+Reference GC (%)	50.77
+N50	4669779
+NG50	4669779
+N90	4669779
+NG90	4669779
+auN	4669779.0
+auNG	4757539.9
+L50	1
+LG50	1
+L90	1
+LG90	1
+# misassemblies	0
+# misassembled contigs	0
+Misassembled contigs length	0
+# local misassemblies	6
+# scaffold gap ext. mis.	0
+# scaffold gap loc. mis.	0
+# unaligned mis. contigs	0
+# unaligned contigs	0 + 0 part
+Unaligned length	0
+Genome fraction (%)	99.793
+Duplication ratio	1.021
+# N's per 100 kbp	0.00
+# mismatches per 100 kbp	2170.01
+# indels per 100 kbp	7293.38
+Largest alignment	4669565
+Total aligned length	4669565
+NA50	4669565
+NGA50	4669565
+NA90	4669565
+NGA90	4669565
+auNA	4669351.0
+auNGA	4757103.9
+LA50	1
+LGA50	1
+LA90	1
+LGA90	1

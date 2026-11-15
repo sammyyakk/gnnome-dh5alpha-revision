@@ -1,0 +1,1 @@
+cond=acc099_d60_L18k acc=0.99 depth=60 len_mean=18500 len_sd=2300 seed=33

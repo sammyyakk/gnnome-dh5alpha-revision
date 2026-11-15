@@ -1,0 +1,1 @@
+cond=acc090_d30_L9k acc=0.90 depth=30 len_mean=9000 len_sd=7000 seed=22
