@@ -64,7 +64,7 @@ new:
 
 **Line 51 – Results.** new:
 ```latex
-\textbf{Results:} After Racon polishing, GNNome was not more accurate than Raven (fewer errors in 3 of 9 settings; mixed model $+0.24$ errors per 100~kbp, 95\% CI $-0.02$ to $+0.50$, favouring Raven), and the same held for real nanopore reads. Unpolished, GNNome was more accurate than Raven in 9 of 9 settings (exact sign test $p=0.004$; $+1.31$~pp identity); the advantage was near zero at realistic $\sim$86\% read identity ($+0.08$~pp) and grew with read accuracy and read length. Its walk copies cleaner reads because its overlap-similarity input tracks read error (Spearman $\rho\approx-0.9$). A greedy walk that ranks edges by raw overlap similarity, with no neural network, exceeded GNNome's unpolished accuracy in 9 of 9 settings ($+0.65$~pp), on accurate HiFi-like reads and on real nanopore reads, so the advantage comes from the features and greedy decoding rather than from learned graph reasoning. Assigning each edge and its reverse-complement twin their own overlap lengths removed 14 of 19 GNNome local misassemblies on noisy reads and all 56 indels longer than 5~bp on accurate reads. A previously reported 23-misassembly failure was a K-12 graph assembled by mistake; all 23 are reference differences between K-12 and NEB 5-alpha.
+\textbf{Results:} After Racon polishing, GNNome was not more accurate than Raven (fewer errors in 2 of 9 settings, 1 tied; mixed model $+0.24$ errors per 100~kbp, 95\% CI $-0.02$ to $+0.50$, favouring Raven), and the same held for real nanopore reads. Unpolished, GNNome was more accurate than Raven in 9 of 9 settings (exact sign test $p=0.004$; $+1.31$~pp identity); the advantage was near zero at realistic $\sim$86\% read identity ($+0.08$~pp) and grew with read accuracy and read length. Its walk copies cleaner reads because its overlap-similarity input tracks read error (Spearman $\rho\approx-0.9$). A greedy walk that ranks edges by raw overlap similarity, with no neural network, exceeded GNNome's unpolished accuracy in 9 of 9 settings ($+0.65$~pp), on accurate HiFi-like reads and on real nanopore reads, so the advantage comes from the features and greedy decoding rather than from learned graph reasoning. Assigning each edge and its reverse-complement twin their own overlap lengths removed 14 of 19 GNNome local misassemblies on noisy reads and all 56 indels longer than 5~bp on accurate reads. A previously reported 23-misassembly failure was a K-12 graph assembled by mistake; all 23 are reference differences between K-12 and NEB 5-alpha.
 ```
 
 **Line 53 – Conclusion.** new:
@@ -332,12 +332,12 @@ Walk steps with true alternatives where the cleaner next read was taken & 333/39
 ### 5.2 "8 of 21, p = 0.07" (line 249)
 Polished: GNNome better in 8, Raven in 12, 1 tie. Exact sign test (tie excluded): p = 0.50 (the reviewer's 0.38 counts the
 tie as a Raven win). The 0.07 was a two-sided Wilcoxon signed-rank (normal approximation) on the error difference, p = 0.067,
-**favouring Raven**. Setting level: GNNome better in 3/7 settings, sign p = 1.0, exact Wilcoxon p = 0.297. Mixed model on the
+**favouring Raven**. Setting level: GNNome better in 2/7 settings, worse in 4, 1 exact tie (`acc099_d60_L18k`, 0.467 vs 0.467); sign p = 0.69 (tie excluded), exact Wilcoxon p = 0.22. Mixed model on the
 **original stored values**: +0.32 errors/100 kbp for GNNome [−0.05, 0.69], p = 0.086; on the **rerun** of the same 21:
-+0.29 [−0.04, +0.62], p = 0.085; on all 27 replicates: +0.24 [−0.02, +0.50], p = 0.075.
++0.29 [−0.04, +0.62], p = 0.085; on all 27 replicates: +0.24 [−0.02, +0.50], p = 0.074.
 new (line 249, last sentence):
 ```latex
-After polishing, GNNome had fewer errors in 3 of 9 settings (exact sign test $p=0.51$; mixed model $+0.24$ errors per 100~kbp, 95\% CI $[-0.02, +0.50]$; 9 of 27 replicates better, 15 worse, 3 tied), so there is no evidence of a polished benefit and the point estimate favours Raven.
+After polishing, GNNome had fewer errors in only 2 of 9 settings (one setting is a tie; exact sign test excluding the tie $p=0.29$; mixed model $+0.24$ errors per 100~kbp, 95\% CI $[-0.02, +0.50]$; 9 of 27 replicates better, 15 worse, 3 tied), so there is no evidence of a polished benefit and the point estimate favours Raven.
 ```
 
 ### 5.3 Pseudo-replication (line 249 "19 of 21 … Wilcoxon p = 1.8e-5"; slope r = 0.95, p = 2e-6)
@@ -350,10 +350,10 @@ exception is the GNNome walk of `acc085_d30_L9k_s33` (the replicate with the 20 
 read (550 vs 549) and is 0.17 pp more accurate. The Raven graph and contig are identical, so this is a near-tie in edge
 scores resolved differently by the CPU build of PyTorch used here (the original used the cu111 build on CPU). It moves
 that setting's mean from +0.02 to +0.08 pp. Rerun statistics, original design (7 settings): unpolished 7/7 settings
-(p = 0.016; mixed +0.97 pp [0.17, 1.77], p = 0.018); polished GNNome better 3/7 (p = 1.0; mixed +0.29 [−0.04, +0.62],
+(p = 0.016; mixed +0.97 pp [0.17, 1.77], p = 0.018); polished GNNome better 2/7, 1 tie (p = 0.69; mixed +0.29 [−0.04, +0.62],
 p = 0.085); source reads cleaner 7/7 (mixed −1.51 pp). **Full design (9 settings, 27 replicates):** unpolished 9/9
-(p = 0.0039; mixed +1.31 pp [0.54, 2.07], p = 0.0009; 26/27 replicates); polished 3/9 (p = 0.51; mixed +0.24
-[−0.02, +0.50], p = 0.075); source reads cleaner 9/9 (mixed −1.78 pp [−2.39, −1.16]). Slope (accuracy series, n = 4
+(p = 0.0039; mixed +1.31 pp [0.54, 2.07], p = 0.0009; 26/27 replicates); polished 2/9, 1 tie (p = 0.29; mixed +0.24
+[−0.02, +0.50], p = 0.074); source reads cleaner 9/9 (mixed −1.78 pp [−2.39, −1.16]). Slope (accuracy series, n = 4
 setting means): 0.133 pp per pp, r = 0.998, p = 0.002.
 
 **Depth vs length** (99% target, 96% reads; GNNome − Raven, pp): 30×/9 kb +1.47; 60×/9 kb +1.99; 30×/18.5 kb +2.99;
@@ -395,7 +395,7 @@ manuscript's read-identity column by 0.03–0.09 pp because that column used agg
 96\%$^{*}$, 60$\times$, 18.5 kb & 96.14 & 96.42$\,\rightarrow\,$99.49 & +3.06 & 3/3 & 99.77 & 0.47 / 0.47 \\
 \bottomrule
 \end{tabular*}
-\caption{Controlled evaluations: 9 settings $\times$ 3 seeds (27 replicates). Inference uses settings as units: GNNome is more accurate unpolished in 9/9 settings (exact sign test $p=0.004$) but not after polishing (3/9, $p=0.51$); the greedy walk on raw overlap similarity is more accurate than GNNome unpolished in 9/9 settings. $^{*}$99\% target; single-pass PBSIM3 yields 96\% mean identity. $^{\dagger}$Run~2 settings. The two Run~1 subsamples are replaced by Run~1R (Section~\ref{sec:run1r}).}
+\caption{Controlled evaluations: 9 settings $\times$ 3 seeds (27 replicates). Inference uses settings as units: GNNome is more accurate unpolished in 9/9 settings (exact sign test $p=0.004$) but not after polishing (2/9, 1 tie, $p=0.29$); the greedy walk on raw overlap similarity is more accurate than GNNome unpolished in 9/9 settings. $^{*}$99\% target; single-pass PBSIM3 yields 96\% mean identity. $^{\dagger}$Run~2 settings. The two Run~1 subsamples are replaced by Run~1R (Section~\ref{sec:run1r}).}
 ```
 
 ## 6. Count discrepancies

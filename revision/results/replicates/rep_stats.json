@@ -39,7 +39,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.9676335889580405,
@@ -70,13 +71,14 @@
     },
     "setting_sign": {
      "pos": 4,
-     "neg": 3,
-     "zero": 0,
-     "p": 1.0
+     "neg": 2,
+     "zero": 1,
+     "p": 0.6875
     },
     "setting_wilcoxon_exact": {
-     "stat": 7.0,
-     "p": 0.296875
+     "stat": 4.0,
+     "p": 0.21875,
+     "n_nonzero": 6
     },
     "mixed_model": {
      "mean": 0.291904761904762,
@@ -113,7 +115,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -1.507257695878644,
@@ -152,7 +155,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 1.2278349856064248,
@@ -189,7 +193,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 13.0,
-     "p": 0.9375
+     "p": 0.9375,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -0.004285714285714366,
@@ -226,7 +231,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -1.4205236396093517,
@@ -265,7 +271,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 1.7151013763319016,
@@ -302,7 +309,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 10.0,
-     "p": 0.578125
+     "p": 0.578125,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.2209523809523812,
@@ -339,7 +347,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -2.086494680002804,
@@ -378,7 +387,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 1.7602213937092388,
@@ -415,7 +425,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 7.0,
-     "p": 0.296875
+     "p": 0.296875,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.10190476190476201,
@@ -452,7 +463,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -2.041076330958692,
@@ -491,7 +503,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.375150201554928,
@@ -528,7 +541,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 3.0,
-     "p": 0.078125
+     "p": 0.078125,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.34857142857142814,
@@ -565,7 +579,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -1.0346481040255826,
@@ -604,7 +619,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.7474677873738542,
@@ -641,7 +657,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 8.0,
-     "p": 0.375
+     "p": 0.375,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -0.07095238095238085,
@@ -678,7 +695,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -0.5792369841241685,
@@ -717,7 +735,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.5323864081028344,
@@ -754,7 +773,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 12.0,
-     "p": 0.8125
+     "p": 0.8125,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.1061904761904764,
@@ -791,7 +811,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -0.6205526913493308,
@@ -830,7 +851,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.015625
+     "p": 0.015625,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.2602013966483773,
@@ -867,7 +889,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 3.0,
-     "p": 0.078125
+     "p": 0.078125,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -0.29619047619047634,
@@ -904,7 +927,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 1.0,
-     "p": 0.03125
+     "p": 0.03125,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.0867340562692935,
@@ -943,7 +967,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 3.0,
-     "p": 0.078125
+     "p": 0.078125,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": -0.5924833874031131,
@@ -980,7 +1005,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 10.0,
-     "p": 0.578125
+     "p": 0.578125,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.0566666666666663,
@@ -1017,7 +1043,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 2.0,
-     "p": 0.046875
+     "p": 0.046875,
+     "n_nonzero": 7
     },
     "mixed_model": {
      "mean": 0.4726095918530598,
@@ -1058,7 +1085,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 1.3050994464273376,
@@ -1091,13 +1119,14 @@
     },
     "setting_sign": {
      "pos": 6,
-     "neg": 3,
-     "zero": 0,
-     "p": 0.5078125
+     "neg": 2,
+     "zero": 1,
+     "p": 0.2890625
     },
     "setting_wilcoxon_exact": {
-     "stat": 9.0,
-     "p": 0.12890625
+     "stat": 6.0,
+     "p": 0.109375,
+     "n_nonzero": 8
     },
     "mixed_model": {
      "mean": 0.2388888888888888,
@@ -1136,7 +1165,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -1.7768357378004396,
@@ -1177,7 +1207,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 1.519463969524195,
@@ -1216,7 +1247,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 20.0,
-     "p": 0.8203125
+     "p": 0.8203125,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -0.004444444444444515,
@@ -1255,7 +1287,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -1.6878758630945725,
@@ -1296,7 +1329,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 1.9580164089109127,
@@ -1335,7 +1369,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 14.0,
-     "p": 0.359375
+     "p": 0.359375,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.1840740740740742,
@@ -1374,7 +1409,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -2.2759884966867783,
@@ -1415,7 +1451,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 1.9916235257461385,
@@ -1454,7 +1491,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 11.0,
-     "p": 0.203125
+     "p": 0.203125,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.08703703703703716,
@@ -1493,7 +1531,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -2.2276815353063197,
@@ -1534,7 +1573,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.509642280123979,
@@ -1573,7 +1613,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 5.0,
-     "p": 0.0390625
+     "p": 0.0390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.2825925925925923,
@@ -1612,7 +1653,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -1.1581426946494324,
@@ -1653,7 +1695,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.6529169624835884,
@@ -1692,7 +1735,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 16.0,
-     "p": 0.49609375
+     "p": 0.49609375,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -0.05481481481481474,
@@ -1731,7 +1775,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -0.49915275888634225,
@@ -1772,7 +1817,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.47215955622194566,
@@ -1811,7 +1857,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 18.0,
-     "p": 0.65234375
+     "p": 0.65234375,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.09148148148148165,
@@ -1850,7 +1897,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -0.5398056722117489,
@@ -1891,7 +1939,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 0.0,
-     "p": 0.00390625
+     "p": 0.00390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.21436452309684761,
@@ -1930,7 +1979,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 5.0,
-     "p": 0.0390625
+     "p": 0.0390625,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -0.24333333333333343,
@@ -1969,7 +2019,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 1.0,
-     "p": 0.0078125
+     "p": 0.0078125,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.08895987470586235,
@@ -2010,7 +2061,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 3.0,
-     "p": 0.01953125
+     "p": 0.01953125,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": -0.7954571663033674,
@@ -2049,7 +2101,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 17.0,
-     "p": 0.5703125
+     "p": 0.5703125,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.04370370370370344,
@@ -2088,7 +2141,8 @@
     },
     "setting_wilcoxon_exact": {
      "stat": 2.0,
-     "p": 0.01171875
+     "p": 0.01171875,
+     "n_nonzero": 9
     },
     "mixed_model": {
      "mean": 0.6186930431510075,

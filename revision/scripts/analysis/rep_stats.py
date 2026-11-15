@@ -40,16 +40,18 @@ df.to_csv(f"{out}/replicates.tsv", sep="\t", index=False)
 
 
 def sign(x):
-    x = np.asarray(x, float); k = int((x > 0).sum()); n = int((x != 0).sum())
+    # round first: QUAST values have 2 decimals, so float residue (e.g. 0.46+0.48+0.46 vs 0.44+0.59+0.37) is a tie
+    x = np.round(np.asarray(x, float), 9); k = int((x > 0).sum()); n = int((x != 0).sum())
     return dict(pos=k, neg=int((x < 0).sum()), zero=int((x == 0).sum()), p=float(stats.binomtest(k, n, 0.5).pvalue) if n else None)
 
 
 def wil(x):
-    x = np.asarray(x, float)
-    if np.all(x == 0) or len(x) < 2:
+    x = np.round(np.asarray(x, float), 9)
+    x = x[x != 0]  # Wilcoxon's zero handling, done here so scipy keeps the exact distribution
+    if len(x) < 2:
         return None
-    r = stats.wilcoxon(x, zero_method="wilcox", alternative="two-sided", mode="exact")
-    return dict(stat=float(r.statistic), p=float(r.pvalue))
+    r = stats.wilcoxon(x, alternative="two-sided", mode="exact")
+    return dict(stat=float(r.statistic), p=float(r.pvalue), n_nonzero=int(len(x)))
 
 
 def mixed(d, col):
