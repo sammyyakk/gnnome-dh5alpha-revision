@@ -1,0 +1,3 @@
+run2_full	edges=2968	twin_length_differs=2950
+run1r	edges=44319	twin_length_differs=40998
+real	edges=4307	twin_length_differs=4272

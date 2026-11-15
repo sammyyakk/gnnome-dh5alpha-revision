@@ -19,8 +19,8 @@ is meant to be pasted at the top of that NOTES.md, replacing the entry that repo
   K-12 vs NEB 5-alpha strain differences. There is no ~210 kb inversion (1-to-1 nucmer: 3 reverse blocks of
   770–1,204 bp, all inside repeat copies).
 - **No other result used this graph.** Every run in the revision (Run 2, real ONT reads, 27 replicates, Run 1R)
-  passes two guards: 200/200 GFA segments are exact substrings of that run's own reads (29/29 graphs), and every
-  GNNome / greedy input graph matches its GFA node-for-node and edge-for-edge (168/168 runs). No two runs share a
+  passes two guards: 200/200 GFA segments are exact substrings of that run's own reads (30/30 graphs), and every
+  GNNome / greedy input graph matches its GFA node-for-node and edge-for-edge (181/181 runs). No two runs share a
   graph hash, and none equals `62176d9d…`. The original Run 1 graph (`b12099…0270`) and Run 2 graph (`6d5df98…`)
   were built from DH5α reads (evidence report §3.3), and the Run 2 GNNome contig reproduces byte for byte from the
   Run 2 graph.
